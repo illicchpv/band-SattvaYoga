@@ -1,12 +1,12 @@
-макет:
+макет:👇
   https://www.figma.com/file/yWepayu7p40tzcZXhGNrWm/Sattva-Yoga-(Copy)-(Copy)?type=design&node-id=257-2&mode=design&t=J07KcsGqJHPKqhoj-0
-репозиторий:
+репозиторий:👇
+  https://github.com/illicchpv/band-SattvaYoga
+опубликовано (ветка master):👇
+  https://illicchpv.github.io/band-SattvaYoga/
 
-опубликовано (ветка master):
-
-фонты SattvaYoga
-
-1.  Raleway Regular 1045
+фонты SattvaYoga 👇  фонтов много. взял только регулярные. 
+      1.  Raleway Regular 1045
 /* raleway-regular - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
@@ -15,15 +15,15 @@
   font-weight: 400;
   src: url('../fonts/raleway-v29-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
-    2.  Raleway SemiBold 339
-    4.  Raleway Light 96
-    5.  Raleway Medium 51
-    6.  Raleway Light Italic 48
-    7.  Raleway Bold 47
-    9.  Raleway Italic 9
-    13. Raleway Bold Italic 3
+      2.  Raleway SemiBold 339
+      4.  Raleway Light 96
+      5.  Raleway Medium 51
+      6.  Raleway Light Italic 48
+      7.  Raleway Bold 47
+      9.  Raleway Italic 9
+      13. Raleway Bold Italic 3
 
-10.   Cormorant Infant Regular 9
+      10.   Cormorant Infant Regular 9
 /* cormorant-regular - cyrillic_latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
@@ -35,7 +35,7 @@
       3.    Cormorant Infant Light 289
       11.   Cormorant Infant Bold 4
 
-8.    Inter Regular 26
+      8.    Inter Regular 26
 /* inter-regular - cyrillic_latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
@@ -77,7 +77,7 @@
       "last 2 versions"
   ],
 ======================================================
-gitHub - Fork \ Pull Request
+gitHub - Fork \ Pull Request руководство
 1. Примите приглашение в проект: Вы должны получить приглашение от владельца проекта. Примите это приглашение, перейдя по ссылке в электронной почте или на самом GitHub.
 
 2. Сделайте форк проекта
