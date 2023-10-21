@@ -1,0 +1,129 @@
+макет:
+  https://www.figma.com/file/yWepayu7p40tzcZXhGNrWm/Sattva-Yoga-(Copy)-(Copy)?type=design&node-id=257-2&mode=design&t=J07KcsGqJHPKqhoj-0
+репозиторий:
+
+опубликовано (ветка master):
+
+фонты SattvaYoga
+
+1.  Raleway Regular 1045
+/* raleway-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/raleway-v29-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+    2.  Raleway SemiBold 339
+    4.  Raleway Light 96
+    5.  Raleway Medium 51
+    6.  Raleway Light Italic 48
+    7.  Raleway Bold 47
+    9.  Raleway Italic 9
+    13. Raleway Bold Italic 3
+
+10.   Cormorant Infant Regular 9
+/* cormorant-regular - cyrillic_latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Cormorant';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/cormorant-v21-cyrillic_latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+      3.    Cormorant Infant Light 289
+      11.   Cormorant Infant Bold 4
+
+8.    Inter Regular 26
+/* inter-regular - cyrillic_latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/inter-v13-cyrillic_latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+      12.   Inter Bold 4
+
+======================================================
+кусок из setting.json связанный с настройками live sass  
+  \file->Prefer..->Settings \ ткнуть на значек справа сверху \open settings\
+
+"liveSassCompile.settings.showOutputWindowOn": "Error",
+  "liveSassCompile.settings.formats": [
+    {
+        "format": "expanded",
+        "extensionName": ".css",
+        "savePath": "~/../css"
+    }
+    // ,
+    // {
+    //     "extensionName": ".min.css",
+    //     "format": "compressed",
+    //     "savePath": "~/../css/"
+    // }
+  ],
+  // // исключения
+  // "liveSassCompile.settings.excludeList": [
+  //     "**/node_modules/**",
+  //     ".vscode/**"
+  // ],
+  // отключение .map файлов
+  "liveSassCompile.settings.generateMap": false,
+  //автопрефиксы, -webkit- -moz-..
+  "liveSassCompile.settings.autoprefix": [
+      "> 1%",
+      "last 2 versions"
+  ],
+======================================================
+gitHub - Fork \ Pull Request
+1. Примите приглашение в проект: Вы должны получить приглашение от владельца проекта. Примите это приглашение, перейдя по ссылке в электронной почте или на самом GitHub.
+
+2. Сделайте форк проекта
+
+3. Склонируйте репозиторий: После принятия приглашения вам нужно будет склонировать репозиторий проекта на свой локальный компьютер с помощью команды git clone. Например:
+
+git clone <URL_репозитория>
+Где <URL_репозитория> - это URL вашего форка проекта на GitHub.
+
+4. Установите зависимости: Если проект зависит от каких-либо сторонних библиотек или инструментов, убедитесь, что у вас установлены все необходимые зависимости. Обычно это делается с помощью инструкций, предоставленных в README файле проекта или команда npm install.
+
+5. Создайте новую ветку: Рекомендуется создать отдельную ветку для каждой задачи или фичи, 
+    которую вы планируете разрабатывать. Это делается с помощью команды git checkout -b:
+
+git checkout -b название_ветки
+Замените название_ветки на имя, которое отражает цель вашей работы 
+(например, feature/новая_функциональность или fix/исправление_бага).
+
+6. Внесите изменения: Теперь вы можете вносить изменения в код проекта, используя ваш любимый текстовый редактор или интегрированную среду разработки.
+
+7. Сделайте коммит изменений: После внесения изменений, сделайте коммит, чтобы сохранить их в вашей локальной ветке. Это делается с помощью команды git commit:
+
+git commit -m "Описание вашего коммита"
+Замените "Описание вашего коммита" на краткое описание сделанных вами изменений.
+
+8. Отправьте изменения на GitHub: Чтобы поделиться своими изменениями с остальной командой, отправьте их на GitHub с помощью команды git push:
+
+git push origin название_вашей_ветки
+
+9. Создайте Pull Request: После отправки изменений, перейдите на GitHub и создайте Pull Request (запрос на слияние) из вашей ветки в основную ветку проекта. В Pull Request можно добавить описание и обсудить изменения с другими участниками проекта.
+
+10. Ожидайте рецензию и слияние: Другие участники проекта могут рецензировать ваш Pull Request и обсудить изменения. После утверждения, ваш код будет слит (merged) в основную ветку проекта.
+
+===================================
+?????
+Как писать стили с правилами stylelint
+
+1.Отступы: Используйте отступ в 4 пробела для удобочитаемости.
+2. Имена классов: Названия классов должны начинаться с маленькой буквы и содержать только буквы, цифры и символы подчеркивания.
+3. Пустые блоки: Не допускайте пустых блоков стилей.
+4. Цвета: Убедитесь, что цвета записаны в правильном формате.
+5. Дублирование свойств: Избегайте дублирования свойств в блоках объявлений.
+6. Неизвестные свойства и значения: Проверяйте, что используемые свойства и значения существуют и не являются опечатками.
+7. Дублирующиеся селекторы: Избегайте дублирования селекторов в одном файле.
+8. Вложенность селекторов: Проверяйте, что вложенные селекторы не избыточны и не лишни.
+=====================================
+
+https://www.rapidtables.com/convert/color/hex-to-rgb.html
+	Hex to RGB Color Converter

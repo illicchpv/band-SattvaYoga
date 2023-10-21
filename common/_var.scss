@@ -1,0 +1,21 @@
+// _var.scss
+$testColor: cadetblue;
+$transitionTime: 0.3s;
+
+$Raleway: 'Raleway', sans-serif;
+$Cormorant: 'Cormorant', sans-serif;
+$Inter: 'Inter', sans-serif;
+
+// ---------- used mixin's ------------------
+
+@function clr($p, $o: 1) {
+  @return rgb(var(--#{$p}) / $o);
+}
+
+$propGlob: 0;
+@mixin vVal($prop, $size1, $size2, $val1, $val2){
+  $k: calc(($val1 - $val2) / ($size1 - $size2));
+  $v: calc($val1 - (($size1 - 100vw) * $k));
+  $propGlob: $v !global;
+  #{$prop}: $v;
+}

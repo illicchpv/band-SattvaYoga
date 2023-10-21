@@ -1,0 +1,15 @@
+// index.scss
+@import '../common/_common';
+
+@import '../common/_header';
+
+// @import './section1';
+// @import './section2';
+
+@import '../common/_footer';
+
+// body{
+// }
+
+.testColor1{  color: clr(sampleClr, 0.5); }
+.testColor2{  color: $testColor; }

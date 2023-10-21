@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru" class="themeLight otherClass">
+  <!-- 
+  сайт  https://illicchpv.github.io/band-Tenloc/
+ -->
+
+  <head>
+    <meta name="author" content="Pavel_Illich" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="./asset/img/favicon.png" />
+    <title>Tenloc | Поиск и бронирование экскурсий</title>
+
+    <!-- сомниваюсь что это помогает
+  <link rel="preload" href="./asset/font/candal-v15-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./asset/font/montserrat-v26-cyrillic_latin-500.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./asset/font/montserrat-v26-cyrillic_latin-600.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./asset/font/montserrat-v26-cyrillic_latin-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./asset/font/montserrat-v26-cyrillic_latin-800.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./asset/font/montserrat-v26-cyrillic_latin-900.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./asset/font/montserrat-v26-cyrillic_latin-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="./asset/font/roboto-v30-latin-regular.woff2" as="font" type="font/woff2" crossorigin> 
+-->
+
+    <link rel="stylesheet" href="./css/index.css" />
+
+    <script src="./common/common.js" defer></script>
+    <script src="./common/testmenu.js" defer></script>
+
+    <script src="./common/IncludHtml.js" defer></script>
+    <script src="./page-index/index.js" defer></script>
+  </head>
+
+  <body>
+
+    <section class="test">
+      <div class="container">
+        <h3>
+          использование Цвета <br />
+          в файле _common.scss в .themeLight и .themeDark заводим переменную, например --sampleClr<br> 
+          .themeLight { --sampleClr: 0 96 223; /*#0060df;*/ ...<br />
+          .themeDark {--sampleClr: 23 237 144; /*#17ed90;*/ ... <br />
+            Без запятых!  <br />
+          применяем: .testColor1{  color: clr(sampleClr, 0.5); }
+        </h3>
+        <h3>результат:</h3>
+        <h2 class="testColor1">{ color: clr(sampleClr, 0.5); ...</h2>
+        <hr />
+      </div>
+    </section>
+
+  </body>
+</html>
