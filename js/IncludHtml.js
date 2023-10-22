@@ -3,141 +3,35 @@ let IncludHtml = (function () {
   let _incsRoot = "./inc";
   let _incs_count = 0;
   let _finish_callback = false;
+  let _defProps = false;
 
   function replaceAll(src, search, replace) {
     return src.split(search).join(replace);
   }
-  function _remove() {
-    if (_finish_callback && --_incs_count <= 0) {
-      _finish_callback();
-    }
-  }
-
-  /*
-  function init(incsRoot = "./inc", doProcessAll = true, finish_callback = false ) {
-    _incsRoot = incsRoot;
-    _finish_callback = finish_callback;
-    if(doProcessAll)
-      processAll()
-  }
-  function process(pparams) {
-    const cb = pparams.docEl.dataset.incs__calback;
-    if (cb) {
-      const h = eval(`(p)=>{ ${cb}(p); }`);
-      try {
-        h(pparams);
-      } catch (e) {
-        console.warn("catch error in call " + cb + "(pprops)", e);
-      }
-    }
-    pparams.docEl.replaceWith(pparams.externEl);
-    _remove(pparams.docEl);
-  }
-  function processAll(container = document) {
-    const incs = container.querySelectorAll(".incs");
-    _incs_count = incs.length;
-    if (_finish_callback && _incs_count <= 0) {
-      _finish_callback();
-      return;
-    }
-    incs.forEach((el) => {
-      // console.log("IncludHtml: className:", el.className, el);
-      let incId = false,
-        incClass = false,
-        incFrom = false;
-      el.classList.forEach((cl) => {
-        if (!incId && cl.startsWith("incId_")) {
-          incId = cl;
-        }
-        if (!incClass && cl.startsWith("incClass_")) {
-          incClass = cl.substring(9);
-        }
-        if (!incFrom && cl.startsWith("incFrom_")) {
-          incFrom = cl.substring(8);
-        }
-      });
-      // pparams = { incId,incFrom,incClass,docEl,externEl,externUrl}
-      const pparams = {
-        incId: incId,
-        incFrom: incFrom,
-        incClass: incClass,
-        docEl: el,
-        externEl: null,
-        externUrl: null,
-      };
-      if (incClass) {
-        if (!incFrom) {
-          const docElement = document.querySelector("." + incClass);
-          if (docElement) {
-            const externEl = docElement.cloneNode(true);
-            externEl.classList.remove(incClass);
-            pparams.externEl = externEl;
-            process(pparams);
-          } else {
-            console.error("IncludHtml - не найден элемент с указанным классом:", incClass);
-            _remove(el);
-          }
-        } else {
-          const url = (_incsRoot + "/" + incFrom).replace("//", "/") + ".inc.html";
-          // console.log("url:", url);
-          pparams.externUrl = url;
-          fetch(url)
-            .then((response) => {
-              if (response.ok) {
-                return response.text();
-              }
-              return _remove(el);
-            })
-            .then((data) => {
-              if (data) {
-                const parser = new DOMParser(),
-                  content = "text/html",
-                  DOM = parser.parseFromString(data, content);
-                const externEl = DOM.body.querySelector('.'+pparams.incClass);
-                if (externEl) {
-                  externEl.classList.remove(pparams.incClass);
-                  pparams.externEl = externEl;
-                  process(pparams);
-                } else {
-                  console.error("Не найден элемент с классом - " + pparams.incClass + "\r\nВ файле: ", url);
-                  _remove(el);
-                }
-              }
-            })
-            .catch((error) => {
-              console.error("Fetch error: ", error);
-            });
-        }
-      } else {
-        console.error("IncludHtml - отсутствует класс incClass_???. ");
-        _remove(el);
-      }
-    });
-  }
-  */
-
-  function doIncludAll( selectorClass, finish_callback = false){
+  function doIncludAll( selectorClass, defProps, finish_callback = false){
+    _defProps = defProps;
     _finish_callback = finish_callback;
     const incs = document.querySelectorAll('.'+selectorClass);
     _incs_count = incs.length;
-    if (_finish_callback && _incs_count <= 0) {
-      _finish_callback();
+    if (_incs_count <= 0) {
+      if(_finish_callback){
+        _finish_callback();
+      }
       return;
     }
-    // try {
+    try {
       incs.forEach((el) => {
         let params = el.dataset.incs
         el.classList.remove(selectorClass);
         el.removeAttribute('data-incs');
         if(!params){
           console.error("IncludHtml - нет json параметров");
-          _remove(el);
           return
         }
         try{
           params = JSON.parse(params)
         }catch(e){
-          console.error("Не удалось назобрать параметры!", e, "data-incs=\r\n", params)
+          console.error("Не удалось разобрать параметры!", e, "data-incs=\r\n", params)
         }
         let errSt = !params;
         errSt = errSt || !params.incFromId
@@ -157,13 +51,11 @@ let IncludHtml = (function () {
               doProcess(params);
             } else {
               console.error("IncludHtml - не найден элемент с указанным id:", params.incFromId);
-              _remove(el);
             }
           } else {  // вставка элемента из документа внешнего html файла
             const url = params.incFile
             if(!url){
               console.error("IncludHtml - не задана extUrl");
-              _remove(el);
               return
             }
             fetch(url)
@@ -171,7 +63,6 @@ let IncludHtml = (function () {
                 if (response.ok) {
                   return response.text();
                 }
-                return _remove(el);
               })
               .then((data) => {
                 if (data) {
@@ -185,7 +76,6 @@ let IncludHtml = (function () {
                     doProcess(params);
                   } else {
                     console.error("Не найден элемент с id: " + params.incFromId + "\r\nВ файле: ", url);
-                    _remove(el);
                   }
                 }
               })
@@ -196,21 +86,52 @@ let IncludHtml = (function () {
           }
         }
       });
-    // } finally {
-    //   doIncludAll( selectorClass, finish_callback)
-    // }    
+    } finally {
+      // debugger
+      // doIncludAll(selectorClass, defProps, finish_callback)
+      if(_finish_callback){
+        _finish_callback();
+      }
+    }    
   }
   function doProcess(params) {
-    if(params.replace){
-      let rArr = []
-      if(!Array.isArray(params.replace)){
-        rArr.push(params.replace)
-      } else {
-        rArr = params.replace
+    let insertType = '';
+    let incInner = false;
+    let replace = [];
+
+    if(_defProps){
+      if(_defProps.insertType){
+        insertType = _defProps.insertType
       }
-      rArr.forEach((r) => {
-        // console.log("r:", r)
-        // debugger
+      if(_defProps.incInner){
+        incInner = _defProps.incInner
+      }
+      if(_defProps.replace){
+        if(!Array.isArray(_defProps.replace)){
+          replace.push(_defProps.replace)
+        } else {
+          replace = _defProps.replace // .concat()
+        }
+      }
+    }
+    if(params){
+      if(params.insertType){
+        insertType = _defProps.insertType
+      }
+      if(params.incInner){
+        incInner = _defProps.incInner
+      }
+      if(params.replace){
+        if(!Array.isArray(params.replace)){
+          replace = replace.concat([params.replace])
+        } else {
+          replace = replace.concat(params.replace)
+        }
+      }
+    }
+
+    if(replace){
+      replace.forEach((r) => {
         try{
           if( r.from && r.to){
             const reg = new RegExp(r.from, "ig");
@@ -233,19 +154,17 @@ let IncludHtml = (function () {
         console.warn("catch error in call " + cb + "(params)", e);
       }
     }
-    // debugger
-    if(params.insertType && params.insertType === 'append'){
+    if(insertType && insertType === 'append'){
       params.docEl.append(params.extEl)
-    } else if(params.insertType && params.insertType === 'prepend'){
+    } else if(insertType && insertType === 'prepend'){
       params.docEl.prepend(params.extEl)
     } else {
-      if(params.incInner){
+      if(incInner){
         params.docEl.outerHTML = params.extEl.innerHTML;
       }else{
         params.docEl.replaceWith(params.extEl);
       }
     }
-    _remove(params.docEl);
   }
 
   return {

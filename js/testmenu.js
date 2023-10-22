@@ -1,18 +1,35 @@
 // testmenu.js
 // log('testmenu.js')
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   // если стр. запущене не локально, ничего не добавляем
-  if (location.hostname !== '127.0.0.1') {
-    return
+  if (location.hostname !== "127.0.0.1") {
+    return;
   }
 
-  let btnText = 'light->dark'
+  let btnText = "light->dark";
   const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
   if (darkThemeMq.matches) {
-    btnText = 'dark->light'
+    btnText = "dark->light";
   }
-  
-  document.querySelector("body .root1").insertAdjacentHTML('afterbegin',
+
+  // верхнее техническое меню.
+  // const testButtons = ["", "itest1.html", "itest2.html"]; // определяется в common.js
+  const btns = testButtons.reduce((pgs, pg) => {
+    const pgName = pg === "" ? "index.html" : pg;
+    const pgCaption = "<i>test</i> " + pgName.replace(".html", "");
+    return (
+      pgs +
+      `
+      <div class="testMenu__page" title="перейти на ${pgName}">
+        <a href="./${pg}"><i>test</i> ${pgName}</a>
+      </div>
+      `
+    );
+  }, "");
+  // log('btns:', btns)
+
+  document.querySelector("body .root1").insertAdjacentHTML(
+    "afterbegin",
     `
   <!-- верхнее техническое меню. ну может протестировать что-то понадобиться -->
   <style>
@@ -65,31 +82,23 @@ document.addEventListener('DOMContentLoaded', function () {
   </style>
   <div class="testMenu">
     <div class="testMenu__pages">
-      <div class="testMenu__page" title="перейти на index.html">
-        <a href="/">main</a>
-      </div>
-      <div class="testMenu__page" title="перейти на testpage1.html">
-        <a href="./testpage1.html"><i>test</i> page1</a>
-      </div>
-      <div class="testMenu__page" title="перейти на testpage2.html">
-        <a href="./testpage2.html"><i>test</i> page2</a>
-      </div>
-      <div class="testMenu__page" title="перейти на testpage3.html">
-        <a href="./testpage3.html"><i>test</i> page3</a>
-      </div>
+      ${btns}
       <div class="testMenu__page">
         <button onclick="themeChange()" title="сменить схему цветов"><span id="theme">${btnText}<span></button>
       </div>      
     </div>
   </div>
-  `);
+  `
+  );
 });
+
+// обработчик нажания на кнопку 'сменить схему цветов' ☝️
 function themeChange() {
-  document.documentElement.classList.toggle('themeLight')
-  document.documentElement.classList.toggle('themeDark')
-  if (document.documentElement.classList.contains('themeDark')) {
-    document.getElementById('theme').innerText = 'dark->light'
+  document.documentElement.classList.toggle("themeLight");
+  document.documentElement.classList.toggle("themeDark");
+  if (document.documentElement.classList.contains("themeDark")) {
+    document.getElementById("theme").innerText = "dark->light";
   } else {
-    document.getElementById('theme').innerText = 'light->dark'
+    document.getElementById("theme").innerText = "light->dark";
   }
 }

@@ -14,7 +14,7 @@
     <!-- сомниваюсь что это помогает
     <link rel="preload" href="./asset/font/candal-v15-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
     -->
-
+    
     <link rel="stylesheet" href="./css/a_normalize.css" />
     <link rel="stylesheet" href="./css/a_base.css" />
 
@@ -31,51 +31,23 @@
     <div class="root1" style="display: none">
       <!-- header -->
       <header class="incs header" 
-        data-incs='{
-          "incFile": "./common/inc.header.html",
-          "insertType": "append",
-          "replace": [
-            {"from": "src=\"../asset/img/", "to": "src=\"./asset/img/"}
-          ],
-          "incFromId": "extId"
-        }'
+        data-incs='{"incFile": "./common.inc/header.html", "incFromId": "extId" }'
       ></header>
 
       <!-- main -->
       <main>
         <section class="incs herro"
-        data-incs='{
-          "incFile": "./page-index/inc.herro.html",
-          "insertType": "append",
-          "replace": [
-            {"from": "src=\"../asset/img/", "to": "src=\"./asset/img/"}
-          ],
-          "incFromId": "extId"
-        }'
+          data-incs='{"incFile": "./page-index/inc.herro.html", "incFromId": "extId" }'
         ></section>
 
         <section class="incs rent"
-        data-incs='{
-          "incFile": "./page-index/inc.rent.html",
-          "insertType": "append",
-          "replace": [
-            {"from": "src=\"../asset/img/", "to": "src=\"./asset/img/"}
-          ],
-          "incFromId": "extId"
-        }'
+          data-incs='{"incFile": "./page-index/inc.rent.html", "incFromId": "extId" }'
         ></section>
       </main>
 
       <!-- footer -->
       <footer class="incs footer" 
-        data-incs='{
-          "incFile": "./common/inc.footer.html",
-          "insertType": "append",
-          "replace": [
-            {"from": "src=\"../asset/img/", "to": "src=\"./asset/img/"}
-          ],
-          "incFromId": "extId"
-        }'
+        data-incs='{"incFile": "./common.inc/footer.html", "incFromId": "extId"}'
       ></footer>
     </div>
     <!-- /root1 -->
@@ -83,6 +55,7 @@
     <!-- root2 -->
     <div class="root2">
       <img class="root2__img" src="./asset/img/favicon.png" alt="loading..." />
+      <div class="buildData"> 2023-10-22 12:38 </div>
     </div>
   </body>
 </html>
