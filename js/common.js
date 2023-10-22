@@ -41,8 +41,8 @@ document.addEventListener("DOMContentLoaded", function () {
       // прячим индикатор ожидания
       document.querySelector("body .root1").style.display = "";
       document.querySelector("body .root2").style.display = "none";
-      // по currPage меняем selected класс
 
+      // по currPage меняем selected класс
       document.querySelectorAll(`.root1 .${currPageClass}`).forEach((el) => {
         el.classList.add("selected");
       });
