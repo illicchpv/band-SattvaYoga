@@ -1,1 +1,33 @@
 // _footer.scss
+.footer{
+  padding-top: 132px;
+  margin-top: -132px;
+  padding-bottom: 130px;
+  background-image: url(../asset/img/bg-bot-main.png);
+  background-position-y: 0;
+  background-position-x: 56%;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.footer_link-container{
+  margin-top: 140px;
+  background-color: #F9F9F9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer_link-block{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 110px;
+}
+.footer_link-block ul{
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+}
+.footer_link-socials{
+  gap: 12px;
+}

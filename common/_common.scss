@@ -5,9 +5,12 @@
 
 @import '../common/_blocks';
 
+// https://www.rapidtables.com/convert/color/hex-to-rgb.html
+// 	Hex to RGB Color Converter
 .themeLight {
-  --txtColor: 0 0 0;
-  --bgColor: 255 255 255;
+  --txtColor: 107 114 118; // #6B7276;
+  --txtColorInv: 255 255 255; // FFFFFF
+  --bgColor: 249 249 249; // #F9F9F
 
   --sampleClr: 0 96 223; /*#0060df;*/
 
@@ -16,9 +19,9 @@
   --color-accent: #fd6f53;
   --font-color: #000000;
 }
-
 .themeDark {
   --txtColor: 255 255 255;
+  --txtColorInv: 0 0 0;
   --bgColor: 0 0 0;
 
   --sampleClr: 23 237 144; /*#17ed90;*/
@@ -33,4 +36,12 @@ body {
   font-family: $Raleway;
   color: clr(txtColor);
   background-color: clr(bgColor);
+  // background-color: red;
+}
+
+.container{
+}
+.containerExt{
+  height: 100%;
+  position: relative;
 }

@@ -13,3 +13,73 @@
 
 .testColor1{  color: clr(sampleClr, 0.5); }
 .testColor2{  color: $testColor; }
+
+// =============================
+.rent{
+  height: 853px;;
+  background-color: #9D9EAA;
+  background-image: url(../asset/img/bg-rent.png);
+  background-position:center;
+  background-size: cover;
+
+  color: clr(txtColorInv);
+}
+.rent__glass{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50vw;
+  height: 100%;
+  z-index: 0;
+
+  background: rgba(255, 255, 255, 0.20);
+  backdrop-filter: blur(17px);  
+}
+.rent__container{
+  position: relative;
+  padding-top: 200px;
+}
+.rent__inner-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 260px;
+}
+.rent__iner-box {
+  width: 50%;
+}
+.rent__iner-title{
+  font-family: $Cormorant;
+  font-size: 80px;
+  font-weight: 300;
+  line-height: 1;
+}
+.rent__iner-text{
+  margin: 24px 0;
+  font-family: $Raleway;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+}
+.rent__addres{
+  position: relative;
+  padding-left: 33px;
+  font-family: $Raleway;
+  max-width: 405px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+}
+.rent__addres::before{
+  content: '';
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 16px;
+  height: 20px;
+  background-image: url(../asset/svg/location.svg);
+}
+.rent__buttons{
+  margin-top: 71px;
+  display: flex;
+  gap: 30px;
+}

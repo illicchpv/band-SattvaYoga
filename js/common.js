@@ -34,7 +34,10 @@ document.addEventListener("DOMContentLoaded", function () {
     "incs",
     {
       insertType: "append",
-      replace: [{ from: 'src="../asset/img/', to: 'src="./asset/img/' }],
+      replace: [
+        { from: 'src="../asset/img/', to: 'src="./asset/img/' }, 
+        { from: 'src="../asset/svg/', to: 'src="./asset/svg/' }
+      ],
     },
     () => {
       // console.log("IncludHtml Finish: Ok"); // вызывается когда IncludHtml всё сделал
