@@ -13,6 +13,7 @@ let IncludHtml = (function () {
     _finish_callback = finish_callback;
     const incs = document.querySelectorAll('.'+selectorClass);
     _incs_count = incs.length;
+    console.log('incs.length:', incs.length)
     if (_incs_count <= 0) {
       if(_finish_callback){
         _finish_callback();
@@ -33,8 +34,11 @@ let IncludHtml = (function () {
         }catch(e){
           console.error("Не удалось разобрать параметры!", e, "data-incs=\r\n", params)
         }
+        let incFromId = false;
+        incFromId = (_defProps && _defProps.incFromId) ? _defProps.incFromId : incFromId;
+        incFromId = (params && params.incFromId) ? params.incFromId : incFromId;
         let errSt = !params;
-        errSt = errSt || !params.incFromId
+        errSt = errSt || !incFromId
         if(!errSt){
           // params.incFromId
           // params.incFile
@@ -43,14 +47,14 @@ let IncludHtml = (function () {
           params.extEl = null
           params.extUrl = null
           if(!params.incFile){ // вставка элемента из текущего документа
-            const docElement = document.getElementById(params.incFromId);
+            const docElement = document.getElementById(incFromId);
             if (docElement) {
               const extEl = docElement.cloneNode(true);
               extEl.removeAttribute('id');
               params.extEl = extEl
               doProcess(params);
             } else {
-              console.error("IncludHtml - не найден элемент с указанным id:", params.incFromId);
+              console.error("IncludHtml - не найден элемент с указанным id:", incFromId);
             }
           } else {  // вставка элемента из документа внешнего html файла
             const url = params.incFile
@@ -69,13 +73,13 @@ let IncludHtml = (function () {
                   const parser = new DOMParser(),
                     content = "text/html",
                     DOM = parser.parseFromString(data, content);
-                  const extEl = DOM.getElementById(params.incFromId); // DOM.body.querySelector('.'+pparams.incClass);
+                  const extEl = DOM.getElementById(incFromId); // DOM.body.querySelector('.'+pparams.incClass);
                   if (extEl) {
                     extEl.removeAttribute('id');
                     params.extEl = extEl
                     doProcess(params);
                   } else {
-                    console.error("Не найден элемент с id: " + params.incFromId + "\r\nВ файле: ", url);
+                    console.error("Не найден элемент с id: " + incFromId + "\r\nВ файле: ", url);
                   }
                 }
               })
@@ -87,11 +91,16 @@ let IncludHtml = (function () {
         }
       });
     } finally {
-      // debugger
-      // doIncludAll(selectorClass, defProps, finish_callback)
-      if(_finish_callback){
-        _finish_callback();
-      }
+      setTimeout(()=>{
+        const incs = document.querySelectorAll('.'+selectorClass);
+        if(incs.length > 0){
+          console.error("Рекурсивное вставление элементов пока не отлажено")
+          // debugger;
+        }
+        if(_finish_callback){
+          _finish_callback();
+        }
+      }, 100);
     }    
   }
   function doProcess(params) {
@@ -99,37 +108,18 @@ let IncludHtml = (function () {
     let incInner = false;
     let replace = [];
 
-    if(_defProps){
-      if(_defProps.insertType){
-        insertType = _defProps.insertType
-      }
-      if(_defProps.incInner){
-        incInner = _defProps.incInner
-      }
-      if(_defProps.replace){
-        if(!Array.isArray(_defProps.replace)){
-          replace.push(_defProps.replace)
-        } else {
-          replace = _defProps.replace // .concat()
-        }
-      }
-    }
-    if(params){
-      if(params.insertType){
-        insertType = _defProps.insertType
-      }
-      if(params.incInner){
-        incInner = _defProps.incInner
-      }
-      if(params.replace){
-        if(!Array.isArray(params.replace)){
-          replace = replace.concat([params.replace])
-        } else {
-          replace = replace.concat(params.replace)
-        }
-      }
-    }
+    insertType = (_defProps && _defProps.insertType) ? _defProps.insertType : insertType;
+    incInner = (_defProps && _defProps.incInner) ? _defProps.incInner : incInner;
 
+    insertType = (params && params.insertType) ? params.insertType : insertType;
+    incInner = (params && params.incInner) ? params.incInner : incInner;
+
+    if(_defProps && _defProps.replace){
+      replace = (!Array.isArray(_defProps.replace)) ? replace = replace.concat([_defProps.replace]) : replace = replace.concat(_defProps.replace)
+    }
+    if(params && params.replace){
+      replace = (!Array.isArray(params.replace)) ? replace = replace.concat([params.replace]) : replace = replace.concat(params.replace)
+    }
     if(replace){
       replace.forEach((r) => {
         try{

@@ -38,6 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
         { from: 'src="../asset/img/', to: 'src="./asset/img/' }, 
         { from: 'src="../asset/svg/', to: 'src="./asset/svg/' }
       ],
+      "incFromId": "extId"
     },
     () => {
       // console.log("IncludHtml Finish: Ok"); // вызывается когда IncludHtml всё сделал
