@@ -10,24 +10,24 @@
   z-index: 1;
 }
 
-.footer_link-container{
+.footer__link-container{
   margin-top: 140px;
   background-color: #F9F9F9;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.footer_link-block{
+.footer__link-block{
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 110px;
 }
-.footer_link-block ul{
+.footer__link-block ul{
   display: flex;
   flex-direction: column;
   gap: 17px;
 }
-.footer_link-socials{
+.footer__link-socials{
   gap: 12px;
 }

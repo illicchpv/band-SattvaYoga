@@ -11,3 +11,20 @@
 
 .testColor1{  color: clr(sampleClr, 0.5); }
 .testColor2{  color: $testColor; }
+
+.root1{
+  background-image: url(../asset/img/bg-top-main.png);
+  background-repeat: no-repeat;
+  background-position-y: 0;
+  background-position-x: 0;
+}
+
+.after-header{
+  height: 140px;
+}
+.after-hero{
+  height: 140px;
+}
+.after-rent{
+
+}
