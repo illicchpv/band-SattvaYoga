@@ -1,0 +1,45 @@
+// _header.scss
+.header__container{
+  padding-top: 44px;
+}
+.header__line{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__logo{
+  width: 113px;
+  height: 52px;  
+}
+.header__nav-items{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 44px;
+
+  font-family: $Raleway;
+  font-size: 16px;
+  font-weight: 400;
+  // letter-spacing: 2.4px;
+}
+.header__nav-sm{
+  position: relative;
+  padding-right: 20px;
+}
+.header__nav-sm::after{
+  content: '';
+  position: absolute;
+  display: block;
+  width: 9px;
+  height: 5px;  
+  background-image: url(../asset/svg/arr-dn.svg);
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.header__nav-where{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  text-transform: uppercase;  
+}
