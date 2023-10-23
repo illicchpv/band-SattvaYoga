@@ -4,6 +4,8 @@
 @import '../common.inc/_header';
 
 @import './_herro';
+@import './_schedule';
+@import './_directions';
 @import './_rent';
 
 @import '../common.inc/_footer';
@@ -26,5 +28,11 @@
   height: 140px;
 }
 .after-rent{
-
+  height: 0;
+}
+.after-schedule{
+  height: 86px;
+}
+.after-directions{
+  height: 120px;
 }

@@ -66,6 +66,7 @@
 }
 
 .link-button1, .link-button2 {
+  display: inline-block;
   background-color: transparent;
   border-radius: 40px;
   border: 0.5px solid #FFF;
@@ -277,6 +278,17 @@ body {
       align-self: end;
 }
 
+.schedule_link-button {
+  padding: 20px 32px;
+  border: 0.5px solid #6B7276;
+}
+
+.directions {
+  padding: 120px 0 140px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(7.89%, #DFEEFF), to(rgba(226, 240, 255, 0.65)));
+  background: linear-gradient(180deg, #DFEEFF 7.89%, rgba(226, 240, 255, 0.65) 100%);
+}
+
 .rent {
   height: 853px;
   background-color: #9D9EAA;
@@ -434,4 +446,16 @@ body {
 
 .after-hero {
   height: 140px;
+}
+
+.after-rent {
+  height: 0;
+}
+
+.after-schedule {
+  height: 86px;
+}
+
+.after-directions {
+  height: 120px;
 }
