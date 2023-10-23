@@ -43,8 +43,10 @@ document.addEventListener("DOMContentLoaded", function () {
     () => {
       // console.log("IncludHtml Finish: Ok"); // вызывается когда IncludHtml всё сделал
       // прячим индикатор ожидания
-      document.querySelector("body .root1").style.display = "";
-      document.querySelector("body .root2").style.display = "none";
+      if(typeof(root1Off) === 'undefined' || !root1Off){
+        document.querySelector("body .root1").style.display = "";
+        document.querySelector("body .root2").style.display = "none";
+      }
 
       // по currPage меняем selected класс
       document.querySelectorAll(`.root1 .${currPageClass}`).forEach((el) => {

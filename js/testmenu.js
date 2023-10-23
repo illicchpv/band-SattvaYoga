@@ -14,18 +14,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // верхнее техническое меню.
   // const testButtons = ["", "itest1.html", "itest2.html"]; // определяется в common.js
-  const btns = testButtons.reduce((pgs, pg) => {
-    const pgName = pg === "" ? "index.html" : pg;
-    const pgCaption = "<i>test</i> " + pgName.replace(".html", "");
-    return (
-      pgs +
-      `
-      <div class="testMenu__page" title="перейти на ${pgName}">
-        <a href="./${pg}"><i>test</i> ${pgName}</a>
-      </div>
-      `
-    );
-  }, "");
+  let btns = ''
+  if(testButtons){
+    btns = testButtons.reduce((pgs, pg) => {
+      const pgName = pg === "" ? "index.html" : pg;
+      const pgCaption = "<i>test</i> " + pgName.replace(".html", "");
+      return (
+        pgs +
+        `
+        <div class="testMenu__page" title="перейти на ${pgName}">
+          <a href="./${pg}"><i>test</i> ${pgName}</a>
+        </div>
+        `
+      );
+    }, "");
+  }
   // log('btns:', btns)
 
   document.querySelector("body .root1").insertAdjacentHTML(

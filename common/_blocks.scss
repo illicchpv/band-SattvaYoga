@@ -21,19 +21,23 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: lightskyblue;
 }
-.root2__img{
-  width: 100px;
-  height: 100px;
-  animation: waitLoad 2s infinite;
-}
-@keyframes waitLoad {
-  0% { 
-    transform: rotate(0deg);
-  }
-  100% { 
-    transform: rotate(360deg);
-  }
+// .root2__img{
+//   width: 100px;
+//   height: 100px;
+//   animation: waitLoad 2s infinite;
+// }
+// @keyframes waitLoad {
+//   0% { 
+//     transform: rotate(0deg);
+//   }
+//   100% { 
+//     transform: rotate(360deg);
+//   }
+// }
+.buildData{
+  margin-top: 20px;
 }
 // /анимация пока загружается страничка
 
