@@ -83,6 +83,96 @@
   background: #B0BFD0;
 }
 
+/* Faq */
+.faq {
+  max-width: 100%;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(107, 114, 118, 0.4);
+}
+
+.faq-title {
+  display: block;
+  padding: 48px 0;
+  padding-right: 71px;
+  padding-left: 7px;
+  position: relative;
+  cursor: pointer;
+  background-color: transparent;
+  -webkit-transition: background-color 0.3s ease-out;
+  transition: background-color 0.3s ease-out;
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.faq-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.faq-title-nom {
+  display: inline-block;
+  -ms-flex-preferred-size: 71px;
+      flex-basis: 71px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+
+.faq-title:after {
+  content: "";
+  display: block;
+  background-image: url(../asset/svg/arr-dn.svg);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  position: absolute;
+  right: 15px;
+  width: 14px;
+  height: 8px;
+  top: 55px;
+}
+
+.faq-title:hover {
+  background-color: rgba(188, 198, 199, 0.1);
+}
+
+.faq-input {
+  width: 0;
+  height: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  position: absolute;
+}
+
+.faq-input:checked ~ .faq-title:after {
+  background-image: url(../asset/svg/arr-up.svg);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.faq-input:checked ~ .faq-text {
+  padding: 48px 71px 48px 50px;
+  border-top: 1px solid rgba(107, 114, 118, 0.4);
+  font-size: 16px;
+}
+
+.faq-text {
+  padding: 48px 71px 48px 50px;
+  padding: 0 71px 0 50px;
+  border-top: 1px solid rgba(107, 114, 118, 0.4);
+  border: 0;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  font-size: 0;
+  font-weight: 400;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+/* /Faq */
 .loader-104 {
   width: 175px;
   height: 80px;
@@ -546,6 +636,38 @@ body {
   height: 60px;
 }
 
+.beginers__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 16px;
+}
+
+.beginers__info-block {
+  max-width: 370px;
+}
+
+.beginers__info-block h2 {
+  font-family: "Cormorant", serif;
+  font-size: 80px;
+  font-weight: 300;
+}
+
+.beginers__info-block p {
+  margin-top: 24px;
+  margin-bottom: 40px;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.beginers_faq {
+  width: 60%;
+}
+
 .rent {
   height: 853px;
   background-color: #9D9EAA;
@@ -715,4 +837,8 @@ body {
 
 .after-directions {
   height: 120px;
+}
+
+.after-beginers {
+  height: 150px;
 }

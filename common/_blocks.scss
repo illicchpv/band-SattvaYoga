@@ -60,3 +60,102 @@
   background: #B0BFD0;
 }
 // /.link-button1, .link-button2
+
+/* Faq */
+$faqYpadding: 48px;
+
+.faq {
+  max-width: 100%;
+}
+.faq-item {
+  // margin-bottom: 5px;
+  // min-height: 100px;
+
+  border-bottom: 1px solid rgba(#6B7276, 0.4);
+}
+.faq-title {
+  display: block;
+  padding: $faqYpadding 0;
+  padding-right: 71px;
+  padding-left: 7px;
+  position: relative;
+
+  // color: #fff;
+  cursor: pointer;
+  background-color: transparent;
+
+  transition: background-color $transitionTime ease-out;
+
+  font-family: $Raleway;
+  font-size: 18px;
+  font-weight: 600;
+  // letter-spacing: 0.9px;
+}
+.faq-title{
+  display: flex;
+}
+.faq-title-nom{
+  display: inline-block;
+  flex-basis: 71px;
+  flex-shrink: 0;
+}
+.faq-title:after {
+  content: "";
+  display: block;
+
+  // border-style: solid;
+  // border-width: 8px 5px 0 5px;
+  // border-color: #000 transparent transparent transparent;
+  background-image: url(../asset/svg/arr-dn.svg);
+  transition: all $transitionTime;
+
+  position: absolute;
+  right: 15px;
+  width: 14px;
+  height: 8px;
+  // top: 50%;
+  // transform: translateY(-50%);
+  top: calc($faqYpadding + 7px);
+}
+.faq-title:hover {
+  background-color: rgba(#BCC6C7, 0.1);
+}
+.faq-input {
+  width: 0;
+  height: 0;
+
+  -webkit-appearance: none;
+  appearance: none;
+
+  position: absolute;
+}
+.faq-input:checked ~ .faq-title {
+  // background-color: #b91125;
+}
+.faq-input:checked ~ .faq-title:after {
+  // border-style: solid;
+  // border-width: 0 5px 8px 5px;
+  // border-color: transparent transparent #000 transparent;
+  background-image: url(../asset/svg/arr-up.svg);
+  transition: all $transitionTime;
+}
+.faq-input:checked ~ .faq-text {
+  // display: block;
+  padding: $faqYpadding 71px $faqYpadding 50px;
+  border-top: 1px solid rgba(#6B7276, 0.4);
+  font-size: 16px;
+}
+.faq-text {
+  // display: none;
+  padding: $faqYpadding 71px $faqYpadding 50px;
+  padding: 0 71px 0 50px;
+  border-top: 1px solid rgba(#6B7276, 0.4);
+  border: 0;
+
+  font-family: $Raleway;
+  font-size: 16px;
+  font-size: 0;
+  font-weight: 400;
+  transition: all $transitionTime;
+}
+/* /Faq */

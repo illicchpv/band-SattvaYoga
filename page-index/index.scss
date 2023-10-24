@@ -6,6 +6,7 @@
 @import './_herro';
 @import './_schedule';
 @import './_directions';
+@import './_beginers';
 @import './_rent';
 
 @import '../common.inc/_footer';
@@ -35,4 +36,7 @@
 }
 .after-directions{
   height: 120px;
+}
+.after-beginers{
+  height: 150px;
 }
