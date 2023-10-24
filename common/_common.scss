@@ -33,6 +33,9 @@
   --font-color: #ffffff;
 }
 
+a{
+  cursor: pointer;
+}
 body {
   font-family: $Raleway;
   color: clr(txtColor);

@@ -1,7 +1,134 @@
 // _schedule.scss
-.schedule{
+// .schedule{}
+.schedule__title-block{
+  display: flex;
+  justify-content: space-between;
 }
+.schedule__title-block h2{
+  font-family: $Cormorant;
+  font-size: 80px;
+  font-weight: 300;
+}
+.schedule__interval{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+
+  font-family: $Raleway;
+  font-size: 24px;
+  font-weight: 500;
+}
+// .schedule__interval-from-to{
+//   // letter-spacing: 1.2px;
+// }
+
+.schedule__type-selectors{
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.schedule__day-title{
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+
+  font-family: $Raleway;
+  font-size: 24px;
+  font-weight: 500;
+  // letter-spacing: 1.2px;  
+}
+.schedule__day-title p{
+  white-space: nowrap; 
+}
+.schedule__day-title div{
+  height: 1px;
+  width: 100%;
+  background-color: #6B7276;
+  flex-shrink: 1;
+}
+
+.schedule__day-table {
+	width: 100%;
+  border-collapse: collapse;
+	border: none;
+}
+.schedule__day-table thead{
+  font-family: $Raleway;
+  font-size: 16px;
+  font-weight: 600;
+}
+.schedule__day-table tbody{
+  font-family: Raleway;
+  font-size: 18px;
+  font-weight: 600;
+  // letter-spacing: 0.9px;  
+}
+.schedule__day-table tbody a {
+  color: #36B9EB;
+}
+.schedule__day-table tbody tr{
+  position: relative;
+}
+.schedule__day-table tbody tr::after{
+  content: '';
+  position: absolute;
+  // background-color: red;
+  width: 100%;
+  height: calc(100% - 10px) ;
+  left: 0;
+  top: 5px;
+  // border-radius: 20px;
+  // border: 1px solid red;
+
+  border-radius: 40px;
+  border: 1px solid rgba(107, 114, 118, 0.50);
+  pointer-events: none;  
+}
+.schedule__day-table td{
+  padding: 25px 40px;
+}
+.schedule__fl{
+  font-weight: 400;
+}
+
+.schedule__show-all-week{
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+
+  font-family: $Raleway;
+  font-size: 18px;
+  font-weight: 400;
+  // letter-spacing: 0.9px;
+}
+.schedule__show-all-week img{
+  width: 19px;
+  height: 11px;
+}
+
+// ---------------------------------
 .schedule_link-button {
   padding: 20px 32px;
   border: 0.5px solid #6B7276;
+
+  position: relative;
+  padding-right: 60px;
+}
+.schedule_link-button::after{
+  content: '';
+  position: absolute;
+  display: block;
+  width: 9px;
+  height: 5px;  
+  background-image: url(../asset/svg/arr-dn.svg);
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
 }
