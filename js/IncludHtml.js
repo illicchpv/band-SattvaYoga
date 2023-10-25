@@ -12,29 +12,28 @@ let IncludHtml = (function () {
     _finish_callback = finish_callback;
     const incs = document.querySelectorAll('.'+selectorClass);
     _incs_count = incs.length;
-    console.log('incs.length:', incs.length)
-    if (_incs_count <= 0) {
-      if(_finish_callback){
-        _finish_callback();
-      }
+    console.log('doIncludAll - incs.length:', incs.length)
+    if (_incs_count <= 0 && _finish_callback) {
+      _finish_callback();
       return;
     }
     try {
-      incs.forEach((el) => {
-        doIncludSingle(el)
-      });
-    } finally {
-      setTimeout(()=>{
-        // const incs = document.querySelectorAll('.'+selectorClass);
-        // if(incs.length > 0){
-        //   console.error("Рекурсивное вставление элементов пока не работает")
-        //   // debugger;
-        // }
-        if(_finish_callback){
-          _finish_callback();
-        }
-      }, 100);
-    }    
+      doIncludSingle(incs[0])
+      // incs.forEach((el) => { doIncludSingle(el) });
+    } catch(e){
+      console.error('doIncludSingle catch(e):', e)
+    }
+    // finally {
+    //   // // const incs = document.querySelectorAll('.'+selectorClass);
+    //   // // if(incs.length > 0){
+    //   // //   console.error("Рекурсивное вставление элементов пока не работает")
+    //   // //   // debugger;
+    //   // //   doIncludAll( selectorClass, defProps, finish_callback = false)
+    //   // // }
+    //   // // debugger
+
+    //   // if(_finish_callback) setTimeout(_finish_callback, 100);
+    // }    
   }
   function doIncludSingle(el){
     let params = el.dataset.incs
@@ -147,11 +146,11 @@ let IncludHtml = (function () {
       }
     }
 
-    const incs = params.extEl.querySelectorAll('.'+ _selectorClass);
-    if(incs.length > 0){
-      console.error("Рекурсивное вставление элементов пока не работает")
-      // debugger;
-    }
+    // const incs = params.extEl.querySelectorAll('.'+ _selectorClass);
+    // if(incs.length > 0){
+    //   console.error("Рекурсивное вставление элементов пока не работает")
+    //   // debugger;
+    // }
 
     if(insertType && insertType === 'append'){
       params.docEl.append(params.extEl)
@@ -164,6 +163,8 @@ let IncludHtml = (function () {
         params.docEl.replaceWith(params.extEl);
       }
     }
+
+    doIncludAll( _selectorClass, _defProps, _finish_callback)
   }
 
   return {

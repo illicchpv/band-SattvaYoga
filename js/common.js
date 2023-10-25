@@ -44,8 +44,12 @@ document.addEventListener("DOMContentLoaded", function () {
       // console.log("IncludHtml Finish: Ok"); // вызывается когда IncludHtml всё сделал
       // прячем индикатор ожидания
       if(typeof(root1Off) === 'undefined' || !root1Off){
-        document.querySelector("body .root1").style.display = "";
-        document.querySelector("body .root2").style.display = "none";
+        try{
+          document.querySelector("body .root1").style.display = "";
+        }catch(e){}
+        try{
+          document.querySelector("body .root2").style.display = "none";
+        }catch(e){}
       }
 
       // по currPage добавляем 'page-selected' класс
