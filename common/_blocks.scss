@@ -130,9 +130,7 @@ $faqYpadding: 48px;
 
   position: absolute;
 }
-.faq-input:checked ~ .faq-title {
-  // background-color: #b91125;
-}
+// .faq-input:checked ~ .faq-title { }
 .faq-input:checked ~ .faq-title:after {
   // border-style: solid;
   // border-width: 0 5px 8px 5px;
