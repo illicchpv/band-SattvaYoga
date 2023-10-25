@@ -107,6 +107,7 @@ $faqYpadding: 48px;
   // border-width: 8px 5px 0 5px;
   // border-color: #000 transparent transparent transparent;
   background-image: url(../asset/svg/arr-dn.svg);
+  background-size: cover;
   transition: all $transitionTime;
 
   position: absolute;
@@ -137,6 +138,7 @@ $faqYpadding: 48px;
   // border-width: 0 5px 8px 5px;
   // border-color: transparent transparent #000 transparent;
   background-image: url(../asset/svg/arr-up.svg);
+  background-size: cover;
   transition: all $transitionTime;
 }
 .faq-input:checked ~ .faq-text {

@@ -125,6 +125,7 @@
   content: "";
   display: block;
   background-image: url(../asset/svg/arr-dn.svg);
+  background-size: cover;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   position: absolute;
@@ -149,6 +150,7 @@
 
 .faq-input:checked ~ .faq-title:after {
   background-image: url(../asset/svg/arr-up.svg);
+  background-size: cover;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
@@ -317,6 +319,7 @@ body {
   width: 9px;
   height: 5px;
   background-image: url(../asset/svg/arr-dn.svg);
+  background-size: cover;
   right: 0;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -355,6 +358,7 @@ body {
 
 .herro__box-logo {
   max-width: 559px;
+  width: 100%;
 }
 
 .herro__images-grid {
@@ -529,6 +533,7 @@ body {
   width: 9px;
   height: 5px;
   background-image: url(../asset/svg/arr-dn.svg);
+  background-size: cover;
   right: 32px;
   top: 50%;
   -webkit-transform: translateY(-50%);

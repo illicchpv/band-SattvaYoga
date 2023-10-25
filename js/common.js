@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   IncludHtml.doIncludAll(
-    "incs",
     {
       insertType: "append",
       replace: [

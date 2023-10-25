@@ -1,39 +1,26 @@
 // IncludHtml.js
 let IncludHtml = (function () {
-  let _incsRoot = "./inc";
-  let _incs_count = 0;
   let _finish_callback = false;
   let _defProps = false;
   let _selectorClass = 'incs'
 
-  function doIncludAll( selectorClass, defProps, finish_callback = false){
-    _selectorClass = selectorClass;
+  function doIncludAll( defProps, finish_callback = false){
     _defProps = defProps;
     _finish_callback = finish_callback;
-    const incs = document.querySelectorAll('.'+selectorClass);
-    _incs_count = incs.length;
-    console.log('doIncludAll - incs.length:', incs.length)
-    if (_incs_count <= 0 && _finish_callback) {
+    _doIncludAll()
+  }
+  function _doIncludAll(){
+    const incs = document.querySelectorAll('.'+_selectorClass);
+    console.log('_doIncludAll - incs.length:', incs.length)
+    if (incs.length <= 0 && _finish_callback) {
       _finish_callback();
       return;
     }
     try {
       doIncludSingle(incs[0])
-      // incs.forEach((el) => { doIncludSingle(el) });
     } catch(e){
       console.error('doIncludSingle catch(e):', e)
     }
-    // finally {
-    //   // // const incs = document.querySelectorAll('.'+selectorClass);
-    //   // // if(incs.length > 0){
-    //   // //   console.error("Рекурсивное вставление элементов пока не работает")
-    //   // //   // debugger;
-    //   // //   doIncludAll( selectorClass, defProps, finish_callback = false)
-    //   // // }
-    //   // // debugger
-
-    //   // if(_finish_callback) setTimeout(_finish_callback, 100);
-    // }    
   }
   function doIncludSingle(el){
     let params = el.dataset.incs
@@ -164,7 +151,7 @@ let IncludHtml = (function () {
       }
     }
 
-    doIncludAll( _selectorClass, _defProps, _finish_callback)
+    _doIncludAll()
   }
 
   return {
