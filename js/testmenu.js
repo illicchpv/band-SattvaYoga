@@ -59,7 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    gap: 7%;
+    flex-wrap: wrap;
+    gap: 2%;
   }
   .testMenu__pages button {
     padding: 6px 10px 1px;
