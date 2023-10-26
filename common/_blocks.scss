@@ -71,7 +71,7 @@ $faqYpadding: 48px;
   // margin-bottom: 5px;
   // min-height: 100px;
 
-  border-bottom: 1px solid rgba(#6B7276, 0.4);
+  border-bottom: 1px solid clr(borderColor, 0.4);
 }
 .faq-title {
   display: block;
@@ -142,14 +142,14 @@ $faqYpadding: 48px;
 .faq-input:checked ~ .faq-text {
   // display: block;
   padding: $faqYpadding 71px $faqYpadding 50px;
-  border-top: 1px solid rgba(#6B7276, 0.4);
+  border-top: 1px solid clr(borderColor, 1); //rgba(#6B7276, 0.4);
   font-size: 16px;
 }
 .faq-text {
   // display: none;
   padding: $faqYpadding 71px $faqYpadding 50px;
   padding: 0 71px 0 50px;
-  border-top: 1px solid rgba(#6B7276, 0.4);
+  border-top: 1px solid clr(borderColor, 1); //rgba(#6B7276, 0.4);
   border: 0;
 
   font-family: $Raleway;

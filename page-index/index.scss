@@ -11,10 +11,6 @@
 
 @import '../common.inc/_footer';
 
-
-.testColor1{  color: clr(sampleClr, 0.5); }
-.testColor2{  color: $testColor; }
-
 .root1{
   background-image: url(../asset/img/bg-top-main.png);
   background-repeat: no-repeat;

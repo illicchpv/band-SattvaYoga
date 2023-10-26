@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* raleway-regular - latin */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
@@ -89,7 +90,7 @@
 }
 
 .faq-item {
-  border-bottom: 1px solid rgba(107, 114, 118, 0.4);
+  border-bottom: 1px solid rgb(var(--borderColor)/0.4);
 }
 
 .faq-title {
@@ -157,14 +158,14 @@
 
 .faq-input:checked ~ .faq-text {
   padding: 48px 71px 48px 50px;
-  border-top: 1px solid rgba(107, 114, 118, 0.4);
+  border-top: 1px solid rgb(var(--borderColor)/1);
   font-size: 16px;
 }
 
 .faq-text {
   padding: 48px 71px 48px 50px;
   padding: 0 71px 0 50px;
-  border-top: 1px solid rgba(107, 114, 118, 0.4);
+  border-top: 1px solid rgb(var(--borderColor)/1);
   border: 0;
   font-family: "Raleway", sans-serif;
   font-size: 16px;
@@ -237,22 +238,17 @@
   --txtColor: 107 114 118;
   --txtColorInv: 255 255 255;
   --bgColor: 249 249 249;
+  --borderColor: 107 114 118;
+  --с:#6B7276;
   --sampleClr: 0 96 223; /*#0060df;*/
-  --color-primary: #0060df;
-  --color-secondary: #fbfbfe;
-  --color-accent: #fd6f53;
-  --font-color: #000000;
 }
 
 .themeDark {
   --txtColor: 255 255 255;
   --txtColorInv: 0 0 0;
   --bgColor: 0 0 0;
+  --borderColor: 255 255 255;
   --sampleClr: 23 237 144; /*#17ed90;*/
-  --color-primary: #17ed90;
-  --color-secondary: #2a2c2d;
-  --color-accent: #12cdea;
-  --font-color: #ffffff;
 }
 
 a {
@@ -445,7 +441,7 @@ body {
 .schedule__day-title div {
   height: 1px;
   width: 100%;
-  background-color: #6B7276;
+  background-color: rgb(var(--borderColor)/1);
   -ms-flex-negative: 1;
       flex-shrink: 1;
 }
@@ -521,7 +517,7 @@ body {
 
 .schedule_link-button {
   padding: 20px 32px;
-  border: 0.5px solid #6B7276;
+  border: 0.5px solid rgb(var(--borderColor)/1);
   position: relative;
   padding-right: 60px;
 }
@@ -570,7 +566,7 @@ body {
 .directions__title div {
   height: 1px;
   width: 100%;
-  background-color: #6B7276;
+  background-color: rgb(var(--borderColor)/1);
   opacity: 0.4;
   -ms-flex-negative: 1;
       flex-shrink: 1;
@@ -581,17 +577,19 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   background-color: #C0D1E7;
 }
 
 .directions__item {
   padding: 32px;
+  padding-right: 12px;
   height: 260px;
-  max-width: 30%;
-  min-width: 15%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 20%;
+          flex: 1 1 20%;
+  white-space: nowrap;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -605,14 +603,25 @@ body {
   border-radius: 30px;
   border: 1px solid #C0D1E7;
   background-color: #E0EEFF;
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
-  -ms-flex-negative: 1;
-      flex-shrink: 1;
   font-family: "Cormorant", serif;
   font-size: 38px;
   font-weight: 300;
+}
+
+.border-tl {
+  border-top-left-radius: 0;
+}
+
+.border-tr {
+  border-top-right-radius: 0;
+}
+
+.border-bl {
+  border-bottom-left-radius: 0;
+}
+
+.border-br {
+  border-bottom-right-radius: 0;
 }
 
 .directions__item:hover {
@@ -807,14 +816,6 @@ body {
 
 .footer__link-socials {
   gap: 12px;
-}
-
-.testColor1 {
-  color: rgb(var(--sampleClr)/0.5);
-}
-
-.testColor2 {
-  color: cadetblue;
 }
 
 .root1 {
