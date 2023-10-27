@@ -12,10 +12,23 @@ $Inter: 'Inter', sans-serif;
   @return rgb(var(--#{$p}) / $o);
 }
 
-$propGlob: 0;
-@mixin vVal($prop, $size1, $size2, $val1, $val2){
+$propGlob1: 0;
+$propGlob2: 0;
+@mixin vVal($prop, $size1, $size2, $val1, $val2){ // мой первый миксин )
   $k: calc(($val1 - $val2) / ($size1 - $size2));
-  $v: calc($val1 - (($size1 - 100vw) * $k));
-  $propGlob: $v !global;
+  $v: calc($val1 - (($size1 - 100vw) * $k)); //
+  $propGlob1: $v !global;
   #{$prop}: $v;
 }
+//@include vVal(padding, 800px, 500px, 10px, 40px);
+
+@mixin v2Val($prop, $size1, $size2, $val11, $val21, $val12, $val22){ // мой 2 миксин )
+  $k: calc(($val11 - $val12) / ($size1 - $size2));
+  $v: calc($val11 - (($size1 - 100vw) * $k)); //
+  $k2: calc(($val21 - $val22) / ($size1 - $size2));
+  $v2: calc($val21 - (($size1 - 100vw) * $k2)); //
+  $propGlob1: $v !global;
+  $propGlob2: $v2 !global;
+  #{$prop}: $v $v2;
+}
+// @include v2Val(padding, 800px, 500px, 10px, 40px, 40px, 10px);
