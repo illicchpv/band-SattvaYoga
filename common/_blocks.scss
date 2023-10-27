@@ -90,6 +90,11 @@ $faqYpadding: 48px;
   font-size: 18px;
   font-weight: 600;
   // letter-spacing: 0.9px;
+
+  @media (max-width: 1250px){
+    @include vVal(padding-top, 1250px, 375px, $faqYpadding, 32px);
+    @include vVal(padding-bottom, 1250px, 375px, $faqYpadding, 32px);
+  }  
 }
 .faq-title{
   display: flex;
@@ -116,7 +121,8 @@ $faqYpadding: 48px;
   height: 8px;
   // top: 50%;
   // transform: translateY(-50%);
-  top: calc($faqYpadding + 7px);
+  top: calc($faqYpadding + 0px);
+  top: calc($propGlob1 + 0px);
 }
 .faq-title:hover {
   background-color: rgba(#BCC6C7, 0.1);
@@ -144,6 +150,11 @@ $faqYpadding: 48px;
   padding: $faqYpadding 71px $faqYpadding 50px;
   border-top: 1px solid clr(borderColor, 1); //rgba(#6B7276, 0.4);
   font-size: 16px;
+
+  @media (max-width: 1250px){
+    @include vVal(padding-top, 1250px, 375px, $faqYpadding, 32px);
+    @include vVal(padding-bottom, 1250px, 375px, $faqYpadding, 32px);
+  }  
 }
 .faq-text {
   // display: none;

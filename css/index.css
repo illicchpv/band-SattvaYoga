@@ -107,6 +107,12 @@
   font-size: 18px;
   font-weight: 600;
 }
+@media (max-width: 1250px) {
+  .faq-title {
+    padding-top: calc(48px - (1250px - 100vw) * 0.0182857143);
+    padding-bottom: calc(48px - (1250px - 100vw) * 0.0182857143);
+  }
+}
 
 .faq-title {
   display: -webkit-box;
@@ -133,7 +139,8 @@
   right: 15px;
   width: 14px;
   height: 8px;
-  top: 55px;
+  top: 48px;
+  top: calc(48px - (1250px - 100vw) * 0.0182857143 + 0px);
 }
 
 .faq-title:hover {
@@ -160,6 +167,12 @@
   padding: 48px 71px 48px 50px;
   border-top: 1px solid rgb(var(--borderColor)/1);
   font-size: 16px;
+}
+@media (max-width: 1250px) {
+  .faq-input:checked ~ .faq-text {
+    padding-top: calc(48px - (1250px - 100vw) * 0.0182857143);
+    padding-bottom: calc(48px - (1250px - 100vw) * 0.0182857143);
+  }
 }
 
 .faq-text {
@@ -968,15 +981,34 @@ body {
           justify-content: space-between;
   gap: 16px;
 }
+@media (max-width: 740px) {
+  .beginers__container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 32px;
+  }
+}
 
 .beginers__info-block {
   max-width: 370px;
+}
+@media (max-width: 740px) {
+  .beginers__info-block {
+    max-width: 100%;
+  }
 }
 
 .beginers__info-block h2 {
   font-family: "Cormorant", serif;
   font-size: 80px;
   font-weight: 300;
+}
+@media (max-width: 1250px) {
+  .beginers__info-block h2 {
+    font-size: calc(80px - (1250px - 100vw) * 0.0502857143);
+  }
 }
 
 .beginers__info-block p {
@@ -986,9 +1018,40 @@ body {
   font-size: 16px;
   font-weight: 400;
 }
+@media (max-width: 1250px) {
+  .beginers__info-block p {
+    margin-bottom: calc(40px - (1250px - 100vw) * 0.0182857143);
+  }
+}
+
+@media (max-width: 740px) {
+  .beginers__info-block img {
+    width: 100%;
+  }
+}
 
 .beginers_faq {
   width: 60%;
+}
+@media (max-width: 740px) {
+  .beginers_faq {
+    width: 100%;
+  }
+}
+
+.beginers_faq .faq-title {
+  font-family: "Raleway", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.beginers_faq .faq-title-quest {
+  font-size: 18px;
+}
+@media (max-width: 1250px) {
+  .beginers_faq .faq-title-quest {
+    font-size: calc(18px - (1250px - 100vw) * 0.0022857143);
+  }
 }
 
 .rent {
