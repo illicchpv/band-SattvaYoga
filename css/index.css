@@ -1062,6 +1062,12 @@ body {
   background-size: cover;
   color: rgb(var(--txtColorInv)/1);
 }
+@media (max-width: 1024px) {
+  .rent {
+    height: auto;
+    padding-bottom: 190px;
+  }
+}
 
 .rent__glass {
   position: absolute;
@@ -1074,10 +1080,24 @@ body {
   -webkit-backdrop-filter: blur(17px);
           backdrop-filter: blur(17px);
 }
+@media (max-width: 1024px) {
+  .rent__glass {
+    top: 534px;
+    left: 0;
+    width: 100%;
+    /* bottom: 0; */
+    height: 100%;
+  }
+}
 
 .rent__container {
   position: relative;
-  padding-top: 200px;
+  padding-top: 150px;
+}
+@media (max-width: 1024px) {
+  .rent__container {
+    padding-top: 50px;
+  }
 }
 
 .rent__inner-container {
@@ -1089,9 +1109,33 @@ body {
           justify-content: space-between;
   gap: 260px;
 }
+@media (max-width: 1250px) {
+  .rent__inner-container {
+    gap: calc(260px - (1250px - 100vw) * 0.9734513274);
+  }
+}
+@media (max-width: 1024px) {
+  .rent__inner-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 64px 0;
+  }
+}
 
 .rent__iner-box {
   width: 50%;
+  position: relative;
+  min-height: 420px;
+}
+@media (max-width: 1024px) {
+  .rent__iner-box {
+    min-height: initial;
+    width: auto;
+    max-width: 320px;
+    height: 420px;
+  }
 }
 
 .rent__iner-title {
@@ -1099,6 +1143,16 @@ body {
   font-size: 80px;
   font-weight: 300;
   line-height: 1;
+}
+@media (max-width: 1400px) {
+  .rent__iner-title {
+    font-size: calc(80px - (1400px - 100vw) * 0.0904255319);
+  }
+}
+@media (max-width: 1024px) {
+  .rent__iner-title {
+    font-size: calc(46px - (1024px - 100vw) * 0.0154083205);
+  }
 }
 
 .rent__iner-text {
@@ -1117,6 +1171,7 @@ body {
   font-size: 18px;
   font-weight: 600;
   line-height: 1;
+  margin-bottom: 80px;
 }
 
 .rent__addres::before {
@@ -1135,6 +1190,25 @@ body {
   display: -ms-flexbox;
   display: flex;
   gap: 30px;
+  position: absolute;
+  bottom: 0;
+}
+@media (max-width: 440px) {
+  .rent__buttons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 100%;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 440px) {
+  .rent_link-button {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .footer {
@@ -1160,6 +1234,8 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .footer__link-block {
