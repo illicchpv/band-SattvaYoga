@@ -823,9 +823,16 @@ body {
 }
 
 .directions {
-  padding: 120px 0 140px;
+  padding-top: 120px;
+  padding-bottom: 140px;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(7.89%, #DFEEFF), to(rgba(226, 240, 255, 0.65)));
   background: linear-gradient(180deg, #DFEEFF 7.89%, rgba(226, 240, 255, 0.65) 100%);
+}
+@media (max-width: 1250px) {
+  .directions {
+    padding-top: calc(120px - (1250px - 100vw) * 0.064);
+    padding-bottom: calc(140px - (1250px - 100vw) * 0.0685714286);
+  }
 }
 
 .directions__title {
@@ -843,6 +850,11 @@ body {
   font-size: 80px;
   font-weight: 300;
   margin-bottom: 48px;
+}
+@media (max-width: 1250px) {
+  .directions__title {
+    font-size: calc(80px - (1250px - 100vw) * 0.0502857143);
+  }
 }
 
 .directions__title p {
@@ -891,6 +903,17 @@ body {
   background-color: #E0EEFF;
   font-family: "Cormorant", serif;
   font-size: 38px;
+  font-weight: 300;
+}
+@media (max-width: 1250px) {
+  .directions__item {
+    font-size: calc(38px - (1250px - 100vw) * 0.0022857143);
+  }
+}
+
+.directions__item span {
+  font-family: "Raleway", sans-serif;
+  font-size: 27px;
   font-weight: 300;
 }
 

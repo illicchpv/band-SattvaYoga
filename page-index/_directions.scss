@@ -1,7 +1,13 @@
 // _directions.scss
 .directions{
-  padding: 120px 0 140px;
+  padding-top: 120px;
+  padding-bottom: 140px;
   background: linear-gradient(180deg, #DFEEFF 7.89%, rgba(226, 240, 255, 0.65) 100%);
+
+  @media (max-width: 1250px){
+    @include vVal(padding-top, 1250px, 375px, 120px, 64px);
+    @include vVal(padding-bottom, 1250px, 375px, 140px, 80px);
+  }
 }
 .directions__title{
   display: flex;
@@ -13,6 +19,10 @@
   font-size: 80px;
   font-weight: 300;
   margin-bottom: 48px;
+
+  @media (max-width: 1250px){
+    @include vVal(font-size, 1250px, 375px, 80px, 36px);
+  }
 }
 .directions__title p{
   white-space: nowrap; 
@@ -47,6 +57,15 @@
 
   font-family: $Cormorant;
   font-size: 38px;
+  font-weight: 300;
+
+  @media (max-width: 1250px){
+    @include vVal(font-size, 1250px, 375px, 38px, 36px);
+  }
+}
+.directions__item span{
+  font-family: $Raleway;
+  font-size: 27px;
   font-weight: 300;
 }
 .border-tl{
