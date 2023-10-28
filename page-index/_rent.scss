@@ -1,8 +1,16 @@
 // _rent.scss
-$iner-box-h1024: 420px;
-$container-padding-top: 150px;
-$container-padding-top1024: 50px;
-$rent-padding-bottom: 190px;
+:root{
+  --rent-iner-box-h: 0;
+  --rent-container-padding-top: 150px;
+  --rent-padding-bottom: 0;
+}
+@media (max-width: 1024px){
+  :root{
+    --rent-iner-box-h: 420px;
+    --rent-container-padding-top: 50px;
+    --rent-padding-bottom: 190px;
+  }
+}
 
 .rent{
   height: 853px;
@@ -10,12 +18,16 @@ $rent-padding-bottom: 190px;
   background-image: url(../asset/img/bg-rent.png);
   background-position:center;
   background-size: cover;
+  padding-bottom: 0;
 
   color: clr(txtColorInv);
 
+  @media (max-width: 1250px){
+    @include vVal(height, 1250px, 1024px, 853px, 725px);
+  }
   @media (max-width: 1024px){
     height: auto;
-    padding-bottom: 190px;
+    padding-bottom: var(--rent-padding-bottom);
   }
 }
 .rent__glass{
@@ -30,19 +42,18 @@ $rent-padding-bottom: 190px;
   backdrop-filter: blur(17px);  
 
   @media (max-width: 1024px){
-    top: $iner-box-h1024 + $container-padding-top1024 + 64px; // calc(200px + 400px + 64px);
+    top: calc(var(--rent-iner-box-h) + var(--rent-container-padding-top) + 64px);
     left: 0;
     width: 100%;
-    /* bottom: 0; */
     height: 100%;
   }
 }
 .rent__container{
   position: relative;
-  padding-top: $container-padding-top;
+  padding-top: var(--rent-container-padding-top);
 
   @media (max-width: 1024px){
-    padding-top: $container-padding-top1024;
+    padding-top: var(--rent-container-padding-top);
   }
 }
 .rent__inner-container {
@@ -61,13 +72,13 @@ $rent-padding-bottom: 190px;
 .rent__iner-box {
   width: 50%;
   position: relative;
-  min-height: $iner-box-h1024;
+  min-height: var(--rent-iner-box-h);
 
   @media (max-width: 1024px){
     min-height: initial;
     width: auto;
     max-width: 320px;
-    height: $iner-box-h1024;    
+    height: var(--rent-iner-box-h);
   }
 }
 .rent__iner-title{
