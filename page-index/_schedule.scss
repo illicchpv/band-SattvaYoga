@@ -63,6 +63,9 @@
   @media (max-width: 840px){
     display: block;
   }
+  @media (max-width: 400px){
+    display: none;
+  }
 }
 
 .schedule__interval-params{

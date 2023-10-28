@@ -580,6 +580,11 @@ body {
     display: block;
   }
 }
+@media (max-width: 400px) {
+  .schedule__interval-year {
+    display: none;
+  }
+}
 
 .schedule__interval-params {
   display: none;
