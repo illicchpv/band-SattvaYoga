@@ -923,6 +923,17 @@ body {
     font-size: calc(38px - (1250px - 100vw) * 0.0022857143);
   }
 }
+@media (max-width: 440px) {
+  .directions__item {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+  }
+}
+@media (max-width: 375px) {
+  .directions__item {
+    white-space: wrap;
+  }
+}
 
 .directions__item span {
   font-family: "Raleway", sans-serif;

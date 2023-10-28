@@ -144,4 +144,7 @@ https://www.rapidtables.com/convert/color/hex-to-rgb.html
   @media (max-width: 840px)
   @media (max-width: 740px)
   @media (max-width: 630px)
-
+  @media (max-width: 440px)
+  @media (max-width: 400px)
+  @media (max-width: 375px)
+  

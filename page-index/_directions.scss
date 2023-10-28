@@ -62,6 +62,12 @@
   @media (max-width: 1250px){
     @include vVal(font-size, 1250px, 375px, 38px, 36px);
   }
+  @media (max-width: 440px){
+    flex-basis: 100%;
+  }
+  @media (max-width: 375px){
+    white-space: wrap;
+  }
 }
 .directions__item span{
   font-family: $Raleway;
