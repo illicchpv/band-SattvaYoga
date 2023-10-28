@@ -1166,7 +1166,7 @@ body {
 .rent {
   height: 853px;
   background-color: #9D9EAA;
-  background-image: url(../asset/img/bg-rent.png);
+  background-image: url(../asset/img/bg-rent.webp);
   background-position: center;
   background-size: cover;
   padding-bottom: 0;
@@ -1338,7 +1338,7 @@ body {
   padding-top: 132px;
   margin-top: -132px;
   padding-bottom: 130px;
-  background-image: url(../asset/img/bg-bot-main.png);
+  background-image: url(../asset/img/bg-bot-main.webp);
   background-position-y: 0;
   background-position-x: 50%;
   background-repeat: no-repeat;
@@ -1475,7 +1475,7 @@ body {
 }
 
 .root1 {
-  background-image: url(../asset/img/bg-top-main.png);
+  background-image: url(../asset/img/bg-top-main.webp);
   background-repeat: no-repeat;
   background-position-y: 0;
   background-position-x: 0;
