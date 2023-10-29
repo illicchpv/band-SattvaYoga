@@ -121,6 +121,9 @@ let IncludHtml = (function () {
   let requestCache = [];
   function fetchOrCache(url, incFromId, calback) {
     url = url.toLowerCase();
+    if(url.indexOf('#') >= 0){
+      url = url.split('#')[0].trim()
+    }    
     if (requestCache[url]) {
       try{
         const extEl = requestCache[url].getElementById(incFromId).cloneNode(true);
@@ -138,16 +141,16 @@ let IncludHtml = (function () {
         .then((data) => {
           if (data) {
 
-            // const parser = new DOMParser(),
-            //   content = "text/html",
-            //   DOM = parser.parseFromString(data, content);
-            // requestCache[url] = DOM.cloneNode(true);
-            // const extEl = DOM.getElementById(incFromId); // DOM.body.querySelector('.'+pparams.incClass);
+            const parser = new DOMParser(),
+              content = "text/html",
+              DOM = parser.parseFromString(data, content);
+            requestCache[url] = DOM.cloneNode(true);
+            const extEl = DOM.getElementById(incFromId); // DOM.body.querySelector('.'+pparams.incClass);
 
-            const DOM = document.createElement("div");
-            DOM.insertAdjacentHTML("afterbegin", data);
-            // const node = placeholder.firstElementChild;
-            const extEl = DOM.querySelector('#' + incFromId) // DOM.getElementById(incFromId);
+            // const DOM = document.createElement("div");
+            // DOM.insertAdjacentHTML("afterbegin", data);
+            // // const node = placeholder.firstElementChild;
+            // const extEl = DOM.querySelector('#' + incFromId) // DOM.getElementById(incFromId);
 
             if (extEl) {
               extEl.removeAttribute("id");
