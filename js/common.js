@@ -11,10 +11,10 @@ const currPage =
     ? "index.html"
     : location.pathname.split("/").pop().toLowerCase();
 const currPageClass = currPage.replace(".", "-");
-log("currPage:", currPage, "currPageClass:", currPageClass);
 
+window.onload = () => console.log('window onload');
 document.addEventListener("DOMContentLoaded", function () {
-  // console.log('document is ready.', location.hostname);
+  console.log('document is ready.', location.hostname, "currPage:", currPage, "currPageClass:", currPageClass);
 
   {
     // цвет. тема стр. \надо передавать между стр
@@ -33,14 +33,14 @@ document.addEventListener("DOMContentLoaded", function () {
   IncludHtml.doIncludAll(
     {
       insertType: "append",
+      incInner: false,
       replace: [
         { from: 'src="../asset/img/', to: 'src="./asset/img/' }, 
         { from: 'src="../asset/svg/', to: 'src="./asset/svg/' }
       ],
-      "incFromId": "extId"
     },
     () => {
-      // console.log("IncludHtml Finish: Ok"); // вызывается когда IncludHtml всё сделал
+      console.log("IncludHtml Finish: Ok"); // вызывается когда IncludHtml всё сделал
       // прячем индикатор ожидания
       if(typeof(root1Off) === 'undefined' || !root1Off){
         try{
