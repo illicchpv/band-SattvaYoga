@@ -12,12 +12,56 @@ const currPage =
     : location.pathname.split("/").pop().toLowerCase();
 const currPageClass = currPage.replace(".", "-");
 
+const hashchangeHandler = () => {
+  let curHash = location.hash.replaceAll('#','')
+  curHash = (curHash === '' ?  IncludHtml.routes[''].hash : curHash)
+  let curHash0 = curHash.split('/')[0]
+  if(curHash.startsWith('!')){
+    if(location.hash.replaceAll('#','') != curHash){
+      IncludHtml.routes['%lastHash%'] = curHash
+      location.hash = curHash
+      return
+    }
+    let url = ''
+    try{
+      url = IncludHtml.routes[curHash0].url
+      if(!url) 
+        throw 'unsupported route [' + curHash0 + ']'
+    }catch(e){
+      console.error('IncludHtml.routes["' + curHash0 + '"].url\r\n', e)
+      if(IncludHtml.routes['%lastHash%'])
+        location.hash = IncludHtml.routes['%lastHash%']
+      return;
+    }
+    if(IncludHtml.routes['%routePage%'] != url){
+      console.log('show url:', url, 'previouse url:', IncludHtml.routes['%routePage%'])
+      IncludHtml.routes['%lastHash%'] = curHash
+      IncludHtml.routes['%routePage%'] = url
+      // меняем заголовок стр.
+      document.title = IncludHtml.routes[curHash0].title
+      // замена содержимого стр.
+      const a = document.querySelectorAll('.incs-route')
+      // debugger
+      a.forEach((el) => {
+        el.innerHTML = ''
+        IncludHtml.doInsertInto(
+          el,
+          () => {
+            console.log("IncludHtml.doInsertInto Finish: Ok");
+          }
+        )
+      })
+    }
+  }else{
+    location.hash = IncludHtml.routes['%lastHash%']
+  }
+}
+
 window.onload = () => console.log('window onload');
 document.addEventListener("DOMContentLoaded", function () {
   console.log('document is ready.', location.hostname, "currPage:", currPage, "currPageClass:", currPageClass);
 
-  {
-    // цвет. тема стр. \надо передавать между стр
+  {  // цвет. тема стр. \надо передавать между стр
     const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
     if (darkThemeMq.matches) {
       //console.log(' Theme set to dark.')
@@ -29,6 +73,14 @@ document.addEventListener("DOMContentLoaded", function () {
       document.documentElement.classList.remove("themeDark");
     }
   }
+
+  // определяем маршрутизацию. какие url какие файлы подгружают
+  IncludHtml.routes[''] =        {hash: '!index', url:'page-index/main.html#extId', title:'SattvaYoga | главная'};
+  IncludHtml.routes['!index'] =  {hash: '!index', url:'page-index/main.html#extId', title:'SattvaYoga | главная'};
+  IncludHtml.routes['!about'] =  {hash: '!about', url:'page-about/main.html#extId', title:'SattvaYoga | о нас'};
+  // вспомогательные 👇
+  IncludHtml.routes['%lastHash%'] = false;
+  IncludHtml.routes['%routePage%'] = 'page-index/main.html#'; // 👈 используется при загрузке части стр.
 
   IncludHtml.doIncludAll(
     {
@@ -55,6 +107,10 @@ document.addEventListener("DOMContentLoaded", function () {
       document.querySelectorAll(`.root1 .${currPageClass}`).forEach((el) => {
         el.classList.add("page-selected");
       });
+
+      // routing
+      hashchangeHandler()
+      window.addEventListener('hashchange', hashchangeHandler);    
     }
   );
 });

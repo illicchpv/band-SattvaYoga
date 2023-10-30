@@ -5,6 +5,7 @@ let IncludHtml = (function () {
   let _selectorClass = "incs";
   let _root = document;
   let _currentCall = ''
+  const routes = []
 
   function doIncludAll(defProps, finish_callback = false) {
     _currentCall = 'doIncludAll'
@@ -67,7 +68,7 @@ let IncludHtml = (function () {
     let params = el.dataset.incs;
     // debugger
     el.classList.remove(_selectorClass);
-    el.removeAttribute("data-incs");
+    // el.removeAttribute("data-incs");
     if (!params) {
       console.error("IncludHtml - нет json параметров");
       return;
@@ -77,6 +78,7 @@ let IncludHtml = (function () {
     } catch (e) {
       console.error("Не удалось разобрать параметры!", e, "data-incs=\r\n", params);
     }
+    params.incFile = params.incFile.replaceAll(('%routePage%'), routes['%routePage%']);
     let incFromId = false;
     if(!params.incFromId && params.incFile.indexOf('#') >= 0){
       incFromId = params.incFile.split('#')[1].trim()
@@ -120,7 +122,7 @@ let IncludHtml = (function () {
   }
   let requestCache = [];
   function fetchOrCache(url, incFromId, calback) {
-    url = url.toLowerCase();
+    // debugger
     if(url.indexOf('#') >= 0){
       url = url.split('#')[0].trim()
     }    
@@ -263,6 +265,8 @@ let IncludHtml = (function () {
   }
 
   return {
+    routes,
+    
     doIncludAll,
     doInsertInto,
   };
