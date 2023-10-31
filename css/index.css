@@ -1480,6 +1480,11 @@ body {
   background-position-y: 0;
   background-position-x: 0;
 }
+@media (max-width: 1250px) {
+  .root1 {
+    background-position-x: calc(0px - (1250px - 100vw) * 0.5371428571);
+  }
+}
 
 .after-header {
   height: 140px;

@@ -16,6 +16,10 @@
   background-repeat: no-repeat;
   background-position-y: 0;
   background-position-x: 0;
+
+  @media (max-width: 1250px){
+    @include vVal(background-position-x, 1250px, 375px, 0px, -470px);
+  }  
 }
 
 .after-header{
