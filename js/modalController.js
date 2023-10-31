@@ -1,5 +1,16 @@
 // modalController & scrollService
-
+/*
+необходимые свойства попапов
+- блокировка основного окна
+- по нажатию на фон закрытие
+- по esc закрытие
+- фокус в поля ввода попапа
+- войс овер
+библиотека headlessUI
+	https://headlessui.com/
+урок
+	https://www.youtube.com/watch?v=7bT3BPNhy8g
+*/
 const scrollService = {
   scrollPosition: 0,
   desableScroll() {
