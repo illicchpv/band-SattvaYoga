@@ -1,6 +1,7 @@
 // common.js
 const log = console.log;
 // log('common.js')
+let mcBurger = null; // modal controller
 
 // список кнопок переходов на тестовые страницы
 const testButtons = ["", "itest1.html", "itest2.html"];
@@ -51,6 +52,9 @@ const hashchangeHandler = () => {
           }
         )
       })
+      if(typeof(pageChanged) === 'function'){
+        pageChanged()
+      }
     }
   }else{
     location.hash = IncludHtml.routes['%lastHash%']
@@ -110,7 +114,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // routing
       hashchangeHandler()
-      window.addEventListener('hashchange', hashchangeHandler);    
+      window.addEventListener('hashchange', hashchangeHandler);
+
+      mcBurger = modalController({ 
+        modal: '.modal_burger', 
+        btnOpen: '.header__nav-burger', 
+        // focusEl: '.order__input' 
+      })
+
     }
   );
 });
+function pageChanged(){
+  try{
+    mcBurger.closeModal()
+  }catch(e){}
+}

@@ -1474,6 +1474,74 @@ body {
   }
 }
 
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  padding: 40px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+  visibility: hidden;
+}
+
+.modal_burger__content {
+  padding: 60px 20px;
+  width: 320px;
+  max-width: 90%;
+  min-height: 20vh;
+  margin: 0 auto;
+  cursor: default;
+  background-color: rgb(var(--bgColor)/1);
+  border-radius: 20px;
+}
+
+.modal_burger__content h2 {
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.modal_burger__content nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.modal_burger .header__nav-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  gap: 30px;
+}
+
+.modal_burger .header__nav-where {
+  padding-left: 0;
+}
+
+.modal_burger .header__nav-where img {
+  display: none;
+}
+
+.modal_burger .header__nav-items {
+  padding-bottom: 40px;
+}
+
+.modal__main_order {
+  max-width: 780px;
+  min-width: 280px;
+}
+
 .root1 {
   background-image: url(../asset/img/bg-top-main.webp);
   background-repeat: no-repeat;
