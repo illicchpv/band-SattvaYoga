@@ -1493,8 +1493,17 @@ body {
   min-height: 20vh;
   margin: 0 auto;
   cursor: default;
+  position: relative;
   background-color: rgb(var(--bgColor)/1);
   border-radius: 20px;
+}
+
+.modal_burger__close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 20px;
+  height: 20px;
 }
 
 .modal_burger__content h2 {

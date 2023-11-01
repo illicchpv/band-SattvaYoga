@@ -25,7 +25,8 @@ const scrollService = {
     height: 100vh;
     width: 100vw;
     padding-right: ${window.innerWidth - document.body.offsetWidth}px;
-` // document.body.offsetWidth - ширина страницы(документа)
+    `; 
+    // document.body.offsetWidth - ширина страницы(документа)
     // window.innerWidth - ширина окна браузера
   },
   enableScroll() {
