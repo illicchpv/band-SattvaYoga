@@ -1,16 +1,11 @@
 // index.scss
 @import '../common/_common';
 
-@import '../common.inc/_header';
-
 @import './_herro';
 @import './_schedule';
 @import './_directions';
 @import './_beginers';
 @import './_rent';
-
-@import '../common.inc/_footer';
-@import '../common.inc/_modal';
 
 .root1{
   background-image: url(../asset/img/bg-top-main.webp);

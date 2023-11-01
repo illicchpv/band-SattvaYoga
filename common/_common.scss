@@ -6,6 +6,10 @@
 @import '../common/_blocks';
 @import '../common/_loader';
 
+@import '../common.inc/_header';
+@import '../common.inc/_footer';
+@import '../common.inc/_modal';
+
 // https://www.rapidtables.com/convert/color/hex-to-rgb.html
 // 	Hex to RGB Color Converter
 .themeLight {
