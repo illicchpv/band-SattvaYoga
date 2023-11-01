@@ -6,12 +6,12 @@ let mcBurger = null; // modal controller
 // список кнопок переходов на тестовые страницы
 const testButtons = ["", "itest1.html", "itest2.html"];
 
-// определяем текущую страницу
-const currPage =
-  location.pathname.split("/").pop().toLowerCase() === ""
-    ? "index.html"
-    : location.pathname.split("/").pop().toLowerCase();
-const currPageClass = currPage.replace(".", "-");
+// // определяем текущую страницу
+// const currPage =
+//   location.pathname.split("/").pop().toLowerCase() === ""
+//     ? "index.html"
+//     : location.pathname.split("/").pop().toLowerCase();
+// const currPageClass = currPage.replace(".", "-");
 
 const hashchangeHandler = () => {
   let curHash = location.hash.replaceAll('#','')
@@ -38,12 +38,19 @@ const hashchangeHandler = () => {
       console.log('show url:', url, 'previouse url:', IncludHtml.routes['%routePage%'])
       IncludHtml.routes['%lastHash%'] = curHash
       IncludHtml.routes['%routePage%'] = url
-      // меняем заголовок стр.
-      document.title = IncludHtml.routes[curHash0].title
+
+      // debugger
+      // выполняем скрипт предв. обработкой стр.
+      if(IncludHtml.routes[curHash0].script0){
+        eval(IncludHtml.routes[curHash0].script0)
+      }
+      // // меняем заголовок стр.
+      // document.title = IncludHtml.routes[curHash0].title
+
       // замена содержимого стр.
       const a = document.querySelectorAll('.incs-route')
       // debugger
-      a.forEach((el) => {
+      a?.forEach((el) => {
         el.innerHTML = ''
         IncludHtml.doInsertInto(
           el,
@@ -52,6 +59,13 @@ const hashchangeHandler = () => {
           }
         )
       })
+
+      // выполняем скрипт окончательной обработки стр.
+      if(IncludHtml.routes[curHash0].script1){
+        eval(IncludHtml.routes[curHash0].script1)
+      }
+
+      // вызываем обработку смены стр.
       if(typeof(pageChanged) === 'function'){
         pageChanged()
       }
@@ -63,7 +77,8 @@ const hashchangeHandler = () => {
 
 window.onload = () => console.log('window onload');
 document.addEventListener("DOMContentLoaded", function () {
-  console.log('document is ready.', location.hostname, "currPage:", currPage, "currPageClass:", currPageClass);
+  // console.log('document is ready.', location.hostname, "currPage:", currPage, "currPageClass:", currPageClass);
+  console.log('document is ready. location.hostname:', location.hostname);
 
   {  // цвет. тема стр. \надо передавать между стр
     const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
@@ -79,9 +94,22 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // определяем маршрутизацию. какие url какие файлы подгружают
-  IncludHtml.routes[''] =        {hash: '!index', url:'page-index/main.html#extId', title:'SattvaYoga | главная'};
-  IncludHtml.routes['!index'] =  {hash: '!index', url:'page-index/main.html#extId', title:'SattvaYoga | главная'};
-  IncludHtml.routes['!about'] =  {hash: '!about', url:'page-about/main.html#extId', title:'SattvaYoga | о нас'};
+  // IncludHtml.routes[''] =        {hash: '!index', url:'page-index/main.html#extId', title:'SattvaYoga | главная'};
+  // IncludHtml.routes['!index'] =  {hash: '!index', url:'page-index/main.html#extId', title:'SattvaYoga | главная'};
+  // IncludHtml.routes['!about'] =  {hash: '!about', url:'page-about/main.html#extId', title:'SattvaYoga | о нас'};
+  IncludHtml.routes[''] =        {hash: '!index', url:'page-index/main.html#extId', 
+    script0: `
+    document.title = 'SattvaYoga | Главная';
+    `
+  };
+  IncludHtml.routes['!index'] =  {hash: '!index', url:'page-index/main.html#extId', 
+    script0: IncludHtml.routes[''].script0
+  };
+  IncludHtml.routes['!about'] =  {hash: '!about', url:'page-about/main.html#extId', 
+    script0: `
+    document.title = 'SattvaYoga | О нас';
+    `
+  };
   // вспомогательные 👇
   IncludHtml.routes['%lastHash%'] = false;
   IncludHtml.routes['%routePage%'] = 'page-index/main.html#'; // 👈 используется при загрузке части стр.
@@ -107,10 +135,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }catch(e){}
       }
 
-      // по currPage добавляем 'page-selected' класс
-      document.querySelectorAll(`.root1 .${currPageClass}`).forEach((el) => {
-        el.classList.add("page-selected");
-      });
+      // // по currPageClass добавляем 'page-selected' класс
+      // document.querySelectorAll(`.root1 .${currPageClass}`).forEach((el) => {
+      //   el.classList.add("page-selected");
+      // });
 
       // routing
       hashchangeHandler()
