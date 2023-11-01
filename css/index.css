@@ -1566,23 +1566,53 @@ body {
 .after-header {
   height: 140px;
 }
+@media (max-width: 1250px) {
+  .after-header {
+    height: calc(140px - (1250px - 100vw) * 0.1325714286);
+  }
+}
 
 .after-hero {
   height: 140px;
 }
-
-.after-rent {
-  height: 0;
+@media (max-width: 1250px) {
+  .after-hero {
+    height: calc(140px - (1250px - 100vw) * 0.0868571429);
+  }
 }
 
 .after-schedule {
   height: 86px;
 }
+@media (max-width: 1250px) {
+  .after-schedule {
+    height: calc(86px - (1250px - 100vw) * 0.0068571429);
+  }
+}
 
 .after-directions {
   height: 120px;
 }
+@media (max-width: 1250px) {
+  .after-directions {
+    height: calc(120px - (1250px - 100vw) * 0.064);
+  }
+}
 
 .after-beginers {
   height: 150px;
+}
+@media (max-width: 1250px) {
+  .after-beginers {
+    height: calc(150px - (1250px - 100vw) * 0.2745098039);
+  }
+}
+@media (max-width: 740px) {
+  .after-beginers {
+    height: calc(80px - (740px - 100vw) * 0);
+  }
+}
+
+.after-rent {
+  height: 0;
 }

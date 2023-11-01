@@ -25,19 +25,42 @@
 
 .after-header{
   height: 140px;
+
+  @media (max-width: 1250px){
+    @include vVal(height, 1250px, 375px, 140px, 24px);
+  }  
 }
 .after-hero{
   height: 140px;
-}
-.after-rent{
-  height: 0;
+
+  @media (max-width: 1250px){
+    @include vVal(height, 1250px, 375px, 140px, 64px);
+  }  
 }
 .after-schedule{
   height: 86px;
+
+  @media (max-width: 1250px){
+    @include vVal(height, 1250px, 375px, 86px, 80px);
+  }  
 }
 .after-directions{
   height: 120px;
+
+  @media (max-width: 1250px){
+    @include vVal(height, 1250px, 375px, 120px, 64px);
+  }  
 }
 .after-beginers{
   height: 150px;
+
+  @media (max-width: 1250px){
+    @include vVal(height, 1250px, 740px, 150px, 10px);
+  }  
+  @media (max-width: 740px){
+    @include vVal(height, 740px, 375px, 80px, 80px);
+  }
+}
+.after-rent{
+  height: 0;
 }
