@@ -12,49 +12,319 @@
 </head>
 <body>
 
-  <header class="header">
-    <div class="container">
-      <nav class="nav">
-        <div class="nav__logo">
-          <!-- logo -->
-        </div>
-
-        <div class="nav__menu">
-          <a class="nav__link" href="">Направления</a>
-          <a class="nav__link" href="">Преподователи</a>
-          <select class="nav__multi-link" name="" id="">
-            Прайслист
-            <option value="">Разовые посещения</option>
-            <option value="">Абонементы</option>
-            <option value="">Бронирование залов</option>
-          </select>
-          <label for="rew">cvhh</label>
-          <datalist id="rew">
-            <option value="">Разовые посещения</option>
-            <option value="">Абонементы</option>
-            <option value="">Бронирование залов</option>
-          </datalist>
-          <select class="nav__multi-link" name="" id="">
-            О нас
-            <option value="">Новичкам</option>
-            <option value="">Студия Москвы</option>
-            <option value="">Студия Бронницы</option>
-            <option value="">Мероприятия</option>
-          </select>
-          <a class="nav__link" href="">Контакты</a>
-          <select class="nav__multi-link" name="" id="">
-            Москва
-            <option value="">Москва</option>
-            <option value="">Бронницы</option>
-          </select>
-        </div>
-      </nav>
-
-      <div class="hero"></div>
-
-      <div class="schedule"></div>
+<header class="header">
+  <div class="container">
+    <nav class="main-nav">
+      <div class="main-nav__logo">
+        <a class="main-nav__logo-link" href="">
+          <img src="" alt="">
+        </a>
+      </div>
+      <div class="main-nav__menu menu">
+        <a class="menu__link" href="#">Направления</a>
+        <a class="menu__link" href="#">Преподаватели</a>
+        <a class="menu__link" href="#">Прайслист</a>
+        <a class="menu__link" href="#">О нас</a>
+        <a class="menu__link" href="#">Контакты</a>
+      </div>
+      <div class="main-nav__sity">
+        <a class="menu__link menu__link--separate" href="#">Москва</a>
+      </div>
+    </nav>
+    <div class="hero">
+      <div class="hero__intro intro">
+        <picture class="intro__logo">
+          <img src="" alt="">
+        </picture>
+        <p class="intro__desc">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+      </div>
+      <div class="hero__images">
+        <picture class="hero__img">
+          <img src="" alt="">
+        </picture>
+        <picture class="hero__img">
+          <img src="" alt="">
+        </picture>
+        <picture class="hero__img">
+          <img src="" alt="">
+        </picture>
+      </div>
     </div>
-  </header>
+  </div>
+</header>
+
+<main class="nain">
+  <div class="timetable">
+    <div class="container">
+      <h2 class="timetable__title" data-timetable="">
+        Расписание занятий
+      </h2>
+      <div class="timetable__data">
+        <img src="" alt="">
+        <span class="timetable__data-shedule"
+        data-data-shedule="1 мая - 7 мая 2023"></span>
+      </div>
+      <form class="timetable__form" action="" method="">
+        <input type="text" name="weekday" list="weekday" placeholder="День недели">
+        <datalist id="weekday">
+          <option value="Понедельник"></option>
+          <option value="Вторник"></option>
+          <option value="Среда"></option>
+          <option value="Четверг"></option>
+          <option value="Пятница"></option>
+          <option value="Суббота"></option>
+          <option value="Воскресенье"></option>
+        </datalist>
+
+        <input type="text" name="class" list="class" placeholder="Тип занятий">
+        <datalist id="class">
+          <option value="Индивидуальная"></option>
+          <option value="Многоразовая"></option>
+          <option value="Одноразовая"></option>
+        </datalist>
+
+        <input type="text" name="teacher" list="teacher" placeholder="Учителя">
+        <datalist id="teacher">
+          <option value="Анастасия Нечипоренко"></option>
+          <option value="Анна Иванова"></option>
+          <option value="Даша Радченко"></option>
+          <option value="Гоар Саферян"></option>
+          <option value="Илья Журавлев"></option>
+          <option value="Алеся Капитонова"></option>
+          <option value="Анна Шаповал"></option>
+          <option value="Юлия Лычак"></option>
+          <option value="Саша Комарькова"></option>
+          <option value="Алексей Владовский"></option>
+          <option value="Николай Удалов"></option>
+          <option value="Марья Терехова"></option>
+          <option value="Ольга Сафронова"></option>
+        </datalist>
+
+        <input type="text" name="studio" list="studio" placeholder="Студия">
+        <datalist id="studio">
+          <option value="Москва">
+          <option value="Бронницы">
+        </datalist>
+
+        <input type="text" name="practice" list="practice" placeholder="Тип практики">
+        <datalist id="practice">
+          <option value="Хатха йога"></option>
+          <option value="Йога для беременных"></option>
+          <option value="Инь йога"></option>
+          <option value="Классическая йога"></option>
+        </datalist>
+
+        <input type="text" name="complexity" list="complexity" placeholder="Сложность">
+        <datalist id="complexity">
+          <option value="Новичок"></option>
+          <option value="Любитель"></option>
+          <option value=""></option>
+        </datalist>
+      </form>
+      <div class="timetable__table table">
+        <div class="table">
+          <h5 class="table__title">Среда 3 мая</h5>
+          <!-- table -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="direction">
+    <div class="container">
+      <h1 class="direction__title">Направление</h1>
+      <div class="direction__table">
+        <!-- flex -->
+      </div>
+    </div>
+  </div>
+
+  <div class="beginner">
+    <div class="container">
+      <div class="beginner__intro">
+        <h2 class="beginner__title">Новичкам</h2>
+        <p class="beginner__desc">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <picture class="beginner__img">
+          <img src="" alt="">
+        </picture>
+      </div>
+      <div class="beginner__list">
+        <!-- list &? -->
+      </div>
+    </div>
+  </div>
+
+  <div class="teacher">
+    <div class="container">
+      <h2 class="teacher__title">Учителя</h2>
+      <div class="teacher__nav">
+        <input type="text" name="city" list="cityname">
+        <datalist id="cityname">
+          <option value="Boston">
+          <option value="Cambridge">
+        </datalist>
+        <a class="link link--outline" href=""></a>
+      </div>
+      <div class="teacher__gallery">
+        <!-- gallery for slides -->
+      </div>
+    </div>
+  </div>
+
+  <div class="view-class">
+    <div class="container">
+      <h2 class="view-class__title">Виды занятий</h2>
+      <div class="view-class__nav">
+        <a class="link link--outline" href=""></a>
+      </div>
+      <div class="view-class__type">
+        <!-- cards -->
+      </div>
+      <div class="view-class__rent rent">
+        <h3 class="rent__title">Аренда залов</h3>
+        <p class="rent__desc">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+        <a class="link link--outline" href=""></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="container">
+      <h3 class="event__title">Мероприятия</h3>
+      <a class="link link--outline" href=""></a>
+      <div class="event__action action">
+        <div class="action__intro">
+          <h4 class="action__title">
+            Танцевальная
+            медитация Freedom Dance
+            с Анной Кретовой
+          </h4>
+          <div class="action__data">
+            Четверг 4 мая 10:00
+          </div>
+          <p class="action__desc">
+            На занятии #freedomDANCE мы создаем и переживаем собственный танец как уникальный опыт. Мы двигаемся, следуя интуитивной логике, проходя танцевальный цикл как метафору жизни
+          </p>
+          <div class="action__nav">
+            <a class="link link--outline" href=""></a>
+            <a class="action__link" href=""></a>
+          </div>
+        </div>
+        <div class="action__img">
+          <img src="" alt="">
+        </div>
+      </div>
+      <div class="event__action action">
+        <div class="action__intro">
+          <h4 class="action__title">
+            Знакомство с глубокими
+            методами медитации,
+            пробуждения своей
+            изначальной природы.
+          </h4>
+          <div class="action__data">
+            Четверг 4 мая 10:00
+          </div>
+          <p class="action__desc">
+            Эти встречи мы специально организовываем для тех, кто только начинает свой путь в самоисследовании. Для тех, кого интересует медитация как метод познания самого себя, своей изначальной природы.
+          </p>
+          <div class="action__nav">
+            <a class="link link--outline" href=""></a>
+            <a class="action__link" href=""></a>
+          </div>
+        </div>
+        <div class="action__img">
+          <img src="" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="rent-city">
+    <div class="container">
+      <div class="rent-city__studio studio">
+        <h2 class="studio__title">
+          Аренда Студии Москва
+        </h2>
+        <p class="studio__greeting">
+          Дорогие друзья! Мы рады приветствовать Вас в нашем уютном, светлом пространстве!
+        </p>
+        <div class="studio__adress">
+          Большой Каретный переулок дом 8/2
+          (метро Цветной Бульвар)
+        </div>
+        <div class="studio__nav">
+          <a class="link link--outline" href=""></a>
+          <a class="studio__nav-link" href=""></a>
+        </div>
+      </div>
+      <div class="rent-city__studio studio">
+        <h2 class="studio__title">
+          Аренда Студии Бронницы
+        </h2>
+        <p class="studio__greeting">
+          Это место, где можно найти занятия для укрепления здоровья. Физического. Психического. Духовного.
+          Вы можете быть здесь самим собой
+        </p>
+        <div class="studio__adress">
+          Каширский пер., д.46, офис.1
+          (цокольный этаж)
+        </div>
+        <div class="studio__nav">
+          <a class="link link--outline" href=""></a>
+          <a class="studio__nav-link" href=""></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__logo">
+      <img src="" alt="">
+    </div>
+    <div class="footer__nav">
+      <div class="menu menu--vertical">
+        <a class="menu__link" href="">Расписание</a>
+        <a class="menu__link" href="">Направления</a>
+        <a class="menu__link" href="">Преподаватели</a>
+      </div>
+      <div class="menu menu--vertical">
+        <a class="menu__link" href="">Прайслист</a>
+        <a class="menu__link" href="">Абонементы</a>
+        <a class="menu__link" href="">Бронирование залов</a>
+      </div>
+      <div class="menu menu--vertical">
+        <a class="menu__link" href="">Новичкам</a>
+        <a class="menu__link" href="">Наши студии</a>
+        <a class="menu__link" href="">Мероприятия</a>
+      </div>
+      <div class="menu menu--vertical">
+        <a class="menu__link" href="">Контакты</a>
+        <a class="menu__link" href="">Политика</a>
+        <a class="menu__link" href="">Лицензия</a>
+      </div>
+      <div class="menu menu--vertical">
+        <a class="menu__link" href="">
+          <img src="" alt="">
+        </a>
+        <a class="menu__link" href="">
+          <img src="" alt="">
+        </a>
+        <a class="menu__link" href="">
+          <img src="" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
